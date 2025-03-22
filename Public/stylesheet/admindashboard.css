@@ -1,0 +1,75 @@
+/* style.css */
+
+body.dashboard {
+    font-family: sans-serif;
+    margin: 0; /* Remove default body margin */
+    display: flex;
+    flex-direction: column; /* Stack header, main, and footer vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark gray text color */
+}.dashboard-header {
+    background-color: #fff; /* White header */
+    padding: 1rem 2rem; /* Consistent padding */
+    display: flex;
+    justify-content: space-between; /* Align logo and navbar */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle header shadow */
+}.logo img {
+    max-height: 40px; /* Adjust logo height as needed */
+}.navbar {
+    display: flex; /* Arrange navbar items horizontally */
+}.navbar-list {
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}.navbar-link {
+    text-decoration: none; /* Remove underlines from links */
+    color: #333; /* Dark gray link color */
+    padding: 0.5rem 1rem; /* Padding around link text */
+    margin-left: 1rem; /* Spacing between links */
+    border-radius: 4px; /* Rounded corners for links */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}.navbar-link:hover {
+    background-color: #eee; /* Light gray background on hover */
+}.dashboard-main {
+    padding: 2rem;
+    flex: 1; /* Allow main content to take up available space */
+}.dashboard-main h1 {
+    margin-bottom: 1rem;
+}.metrics {
+    display: flex;
+    gap: 20px; /* Space between metric cards */
+    margin-bottom: 2rem;
+}.metric-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1; /* Distribute space evenly */
+}.metric-card h2 {
+    margin-bottom: 0.5rem;
+    color: #555; /* Slightly darker heading color */
+}.recent-properties,.recent-users {
+    margin-bottom: 2rem;
+}.recent-properties h2,.recent-users h2 {
+    margin-bottom: 1rem;
+}.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}.property-card {
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px;
+    overflow: hidden; /* Hide overflowing image content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}.property-card img {
+    width: 100%;
+    height: auto;
+    display: block; /* Prevent image from creating extra space */
+}.property-card h3,.property-card p {
+    padding: 0.5rem 1rem;
+    margin: 0;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="../Public/stylesheet/signup.css">
+    <link rel ="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <style>
+        /* Add some basic styling for error messages */
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="signup">
+        <form id="signupForm" action="/submit" method="POST">
+            <h3>SIGN UP</h3>
+            <label class="label">Username</label><br>
+            <input type="text" class="input" placeholder="Enter Username" required name="username" id="username">
+            <div class="error" id="usernameError"></div> <label class="label">Email</label>
+            <input type="email" class="input" placeholder="Enter email" required name="email" id="email">
+            <div class="error" id="emailError"></div> <label class="label">Date Of birth</label>
+            <input class="input" id="dobInput" type="date" name="dateOfBirth" required> <label class="label">Password</label>
+            <input type="password" class="input" placeholder="Enter Password" required id="password" name="password">
+            <div class="error" id="passwordError"></div> <label class="label"> Confirm Password</label>
+            <input type="password" placeholder="Confirm Password" required id="confirmPassword" name="confirmPassword">
+            <div class="error" id="confirmPasswordError"></div> <button class="register" type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const usernameError = document.getElementById('usernameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+        form.addEventListener('submit', (event) => {
+            // Reset error messages
+            usernameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            confirmPasswordError.textContent = "";
+
+            let isValid = true;
+
+            if (usernameInput.value.trim() === "") {
+                usernameError.textContent = "Username is required";
+                isValid = false;
+            }
+
+            if (emailInput.value.trim() === "") {
+                emailError.textContent = "Email is required";
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value)) {
+                emailError.textContent = "Invalid email format";
+                isValid = false;
+            }
+
+            if (passwordInput.value.trim() === "") {
+                passwordError.textContent = "Password is required";
+                isValid = false;
+            } else if (passwordInput.value.length < 8) {
+                passwordError.textContent = "Password must be at least 8 characters";
+                isValid = false;
+            }
+
+            if (confirmPasswordInput.value.trim() === "") {
+                confirmPasswordError.textContent = "Confirm Password is required";
+                isValid = false;
+            } else if (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordError.textContent = "Passwords do not match";
+                isValid = false;
+            }
+
+            if (!isValid) {
+                event.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+
+        function isValidEmail(email) {
+            // Basic email validation regex (you can use a more robust one)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>

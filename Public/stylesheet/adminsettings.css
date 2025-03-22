@@ -1,0 +1,122 @@
+/* styles.css */
+
+body {
+font-family: sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+color: #333;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+.main-content {
+flex: 1;
+max-width: 800px;
+margin: 20px auto;
+padding: 20px;
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+text-align: center;
+margin-bottom: 20px;
+color: #000;
+}
+
+.form-container {
+padding: 20px;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+width: calc(100% - 12px);
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+select[multiple] {
+height: 100px; /* Adjust height as needed */
+}
+
+input[type="checkbox"] {
+margin-left: 10px;
+}
+
+.btn {
+background-color: #4CAF50;
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: auto;
+}
+
+.btn:hover {
+background-color: #45a049;
+}
+
+/* Header and Footer styles (assuming shared files) */
+header, footer{
+background-color: #000;
+color: white;
+padding: 10px;
+text-align: center;
+}
+
+header{
+text-align: left;
+}
+
+/* Sidebar styles (assuming shared files) */
+aside {
+width: 200px; /* Adjust as needed */
+background-color: #f0f0f0;
+padding: 20px;
+height: 100vh; /* Make sidebar full height */
+}
+
+/*Layout adjustments for sidebar*/
+body{
+flex-direction: row;
+}
+
+.main-content{
+margin-left: 200px;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+aside{
+height: auto;
+}
+
+@media(max-width: 800px){
+body{
+    flex-direction: column;
+}
+aside{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.main-content{
+    margin-left: 0;
+}
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../Public/stylesheet/addproperty.css">
+<title>Add Property</title>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="h_container">
+    <img src="../Public/images/Black Gold Elegant Simple Real Estate Logo (1).png" width="100" height="100" class="logo" alt="Destro Logo">
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><a href="/" class="navbar-link active">Home</a></li>
+            <li><a href="#" class="navbar-link">Rent</a></li>
+            <li><a href="/addproperty" class="navbar-link">Upload</a></li>
+            <li><a href="#" class="navbar-link">Buy</a></li>
+            <li><a href="/valuate" class="navbar-link">Valuate</a></li>
+            <li><a href="/about" class="navbar-link">About</a></li>
+            <li><a href="/login" class="btn btn-fill">Get Started</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+<h2>Add Property</h2>
+<form action="/submit" method="post" enctype="multipart/form-data">
+    <!-- Property Type (Sale or Rent) -->
+    <label for="property_type">Property Type:</label>
+    <select id="property_type" name="property_type" required>
+        <option value="sale">For Sale</option>
+        <option value="rent">For Rent</option>
+    </select>
+
+    <!-- Location -->
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" placeholder="Enter the property location" required>
+
+    <!-- House Type -->
+    <label for="house_type">House Type:</label>
+    <select id="house_type" name="house_type" required>
+        <option value="apartment">Apartment</option>
+        <option value="townhouse">Townhouse</option>
+        <option value="bungalow">Bungalow</option>
+        <option value="villa">Villa</option>
+        <option value="condo">Condo</option>
+        <option value="duplex">Duplex</option>
+        <option value="mansion">Mansion</option>
+        <option value="other">Other</option>
+    </select>
+
+    <!-- Square Footage -->
+    <label for="sqft">Square Footage (Size):</label>
+    <input type="number" id="sqft" name="sqft" placeholder="Enter the size in sqft" required>
+
+    <!-- Number of Bedrooms -->
+    <label for="bedrooms">Number of Bedrooms:</label>
+    <input type="number" id="bedrooms" name="bedrooms" placeholder="Enter the number of bedrooms" required>
+
+    <!-- Number of Bathrooms -->
+    <label for="bathrooms">Number of Bathrooms:</label>
+    <input type="number" id="bathrooms" name="bathrooms" placeholder="Enter the number of bathrooms" required>
+
+    <!-- Lot Size -->
+    <label for="lot_size">Lot Size (in sqft):</label>
+    <input type="number" id="lot_size" name="lot_size" placeholder="Enter the size of the lot">
+
+    <!-- Price -->
+    <label for="price">Price ($):</label>
+    <input type="number" id="price" name="price" placeholder="Enter the price" required>
+
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" placeholder="Describe the property (e.g., features, amenities)"></textarea>
+
+    <!-- Image Upload -->
+    <label for="images">Upload Images:</label>
+    <input type="file" id="images" name="images" multiple accept="image/*" required>
+
+    <input type="submit" value="Submit Property">
+</form>
+</div>
+
+<!-- Footer -->
+<footer>
+<p>&copy; 2023 Real Estate Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>

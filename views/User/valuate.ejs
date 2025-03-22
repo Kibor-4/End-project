@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Public/stylesheet/valuate.css">
+    <title>VALUATE</title>
+</head>
+<body>
+    <div class="container">
+        <h2>House Valuation Form</h2>
+        <form action="/valuate" method="POST">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter your city or neighborhood" required>
+
+            <label for="house_type">House Type:</label>
+            <select id="house_type" name="house_type" required>
+                <option value="apartment">Apartment</option>
+                <option value="townhouse">Townhouse</option>
+                <option value="bungalow">Bungalow</option>
+                <option value="villa">Villa</option>
+                <option value="condo">Condo</option>
+                <option value="duplex">Duplex</option>
+                <option value="mansion">Mansion</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="bedrooms">Number of Bedrooms:</label>
+            <input type="number" id="bedrooms" name="bedrooms" placeholder="Enter the number of bedrooms" required>
+
+            <label for="bathrooms">Number of Bathrooms:</label>
+            <input type="number" id="bathrooms" name="bathrooms" placeholder="Enter the number of bathrooms" required>
+
+            <input type="submit" value="Evaluate">
+        </form>
+
+        <div id="predictionResult" class="result">
+            <% if (typeof prediction !== 'undefined') { %>
+                <p>Predicted Price: KSh <%= prediction %></p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

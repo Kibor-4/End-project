@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics</title>
+  <link rel="stylesheet" href="../../Public/stylesheet/analytics.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Admin Dashboard</h2>
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/properties">Properties</a></li>
+        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/transactions">Transactions</a></li>
+        <li><a href="/admin/analytics" class="active">Analytics</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="header">
+        <h1>Analytics</h1>
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <div class="chart-placeholder">
+        <p>Sales Chart</p>
+        <% if (salesChartData) { %>
+          <div id="salesChart">
+            <script>
+                renderSalesChart(<%- JSON.stringify(salesChartData) %>);
+            </script>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="chart-placeholder">
+        <p>User Activity Chart</p>
+        <% if (userActivityChartData) { %>
+          <div id="userActivityChart">
+            <script>
+                renderUserActivityChart(<%- JSON.stringify(userActivityChartData) %>);
+            </script>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>

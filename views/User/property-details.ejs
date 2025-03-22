@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= property.house_type %> Details</title>
+    <link rel="stylesheet" href="../Public/stylesheet/propertydetails.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <h1><%= property.house_type %> Details</h1>
+    <div class="property-details">
+        <p><i class="fas fa-map-marker-alt"></i> <%= property.location %></p>
+        <p><strong>House Type:</strong> <%= property.house_type %></p>
+        <p><strong>Square Footage:</strong> <%= property.sqft %> sqft</p>
+        <p><i class="fas fa-bed"></i> <%= property.bedrooms %></p>
+        <p><i class="fas fa-bath"></i> <%= property.bathrooms %></p>
+        <p><strong>Lot Size:</strong> <%= property.lot_size %> sqft</p>
+        <p><i class="fas fa-dollar-sign"></i> KSh<%= property.price %></p>
+        <p><strong>Description:</strong> <%= property.description %></p>
+
+        <h3>Uploaded Images</h3>
+        <% property.images.forEach((imagePath) => { %>
+            <img src="<%= imagePath %>" alt="Uploaded Image">
+        <% }); %>
+    </div>
+
+    <h2>Reviews</h2>
+
+    <% if (reviews && reviews.length > 0) { %>
+        <div class="reviews">
+            <% reviews.forEach(review => { %>
+                <div class="review">
+                    <p><strong><%= review.username %></strong> - Rating: <%= review.rating %></p>
+                    <p><%= review.comment %></p>
+                    <p><small>Posted on: <%= review.created_at.toLocaleString() %></small></p>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No reviews yet.</p>
+    <% } %>
+
+    <% if (user) { %>
+        <h3>Add a Review</h3>
+        <form action="/properties/<%= property.id %>/reviews" method="POST">
+            <label for="rating">Rating:</label>
+            <select name="rating" id="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+            <label for="comment">Comment:</label><br>
+            <textarea name="comment" id="comment" rows="4" cols="50"></textarea><br>
+            <button type="submit">Submit Review</button>
+        </form>
+    <% } else { %>
+        <p>Please <a href="/login">log in</a> to leave a review.</p>
+    <% } %>
+</body>
+</html>

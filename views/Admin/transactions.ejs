@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions</title>
+  <link rel="stylesheet" href="../../Public/stylesheet/transactions.css">
+</head>
+<body>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Admin Dashboard</h2>
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/properties">Properties</a></li>
+        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/transactions" class="active">Transactions</a></li>
+        <li><a href="/admin/analytics">Analytics</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="header">
+        <h1>Transactions</h1>
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Property</th>
+            <th>Buyer</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (transactions && transactions.length > 0) { %>
+            <% transactions.forEach(transaction => { %>
+              <tr>
+                <td><%= transaction.id %></td>
+                <td><%= transaction.property %></td>
+                <td><%= transaction.buyer %></td>
+                <td><%= transaction.amount %></td>
+                <td><%= transaction.date %></td>
+                <td><%= transaction.status %></td>
+              </tr>
+            <% }); %>
+          <% } else { %>
+            <tr>
+              <td colspan="6">No transactions found.</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      console.log("Logout clicked");
+      window.location.href = '/logout';
+    }
+  </script>
+</body>
+</html>

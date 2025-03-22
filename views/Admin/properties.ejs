@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Management</title>
+  <link rel="stylesheet" href="../../Public/stylesheet/propertiesadmin.css">
+</head>
+<body>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Admin Dashboard</h2>
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/properties" class="active">Properties</a></li>
+        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/transactions">Transactions</a></li>
+        <li><a href="/admin/analytics">Analytics</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="header">
+        <h1>Property Management</h1>
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (properties && properties.length > 0) { %>
+            <% properties.forEach(property => { %>
+              <tr>
+                <td><%= property.id %></td>
+                <td><%= property.title %></td>
+                <td><%= property.type %></td>
+                <td><%= property.price %></td>
+                <td><%= property.status %></td>
+                <td>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            <% }); %>
+          <% } else { %>
+            <tr>
+              <td colspan="6">No properties found.</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      console.log("Logout clicked");
+      window.location.href = '/logout';
+    }
+  </script>
+</body>
+</html>

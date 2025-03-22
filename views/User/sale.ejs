@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listed Properties</title>
+    <link rel="stylesheet" href="/Public/stylesheet/sale.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+</head>
+<body>
+    <header>
+        <div class="h_container">
+            <img src="../Public//images/Black Gold Elegant Simple Real Estate Logo (1).png" width="100" height="100" class="logo" alt="Destro Logo">
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li><a href="/" class="navbar-link active">Home</a></li>
+                    <li><a href="#" class="navbar-link">Rent</a></li>
+                    <li><a href="/addproperty" class="navbar-link">Upload</a></li>
+                    <li><a href="#" class="navbar-link">Buy</a></li>
+                    <li><a href="/valuate" class="navbar-link">Valuate</a></li>
+                    <li><a href="/about" class="navbar-link">About</a></li>
+                    <li><a href="/login" class="btn btn-fill">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <body>
+        <div class="listing">
+            <li><a href="/all" class="navbar-link">All Listings</a></li>
+            <li><a href="/active" class="navbar-link">Active Listings</a></li>
+            <li><a href="/sold" class="navbar-link">Sold Listings</a></li>
+        </div>
+
+        <form action="<%= req.path %>" method="GET">
+            <div class="filters">
+                <select name="house_type">
+                    <option value="">All Types</option>
+                    <option value="Apartment" <%= query.house_type === 'Apartment' ? 'selected' : '' %>>Apartment</option>
+                    <option value="House" <%= query.house_type === 'House' ? 'selected' : '' %>>House</option>
+                    <option value="Villa" <%= query.house_type === 'Villa' ? 'selected' : '' %>>Villa</option>
+                </select>
+                <input type="number" name="min_price" placeholder="Min Price" value="<%= query.min_price || '' %>">
+                <input type="number" name="max_price" placeholder="Max Price" value="<%= query.max_price || '' %>">
+                <select name="bedrooms">
+                    <option value="">Any Bedrooms</option>
+                    <option value="1" <%= query.bedrooms === '1' ? 'selected' : '' %>>1</option>
+                    <option value="2" <%= query.bedrooms === '2' ? 'selected' : '' %>>2</option>
+                    <option value="3" <%= query.bedrooms === '3' ? 'selected' : '' %>>3</option>
+                    <option value="4" <%= query.bedrooms === '4' ? 'selected' : '' %>>4+</option>
+                </select>
+                <select name="bathrooms">
+                    <option value="">Any Bathrooms</option>
+                    <option value="1" <%= query.bathrooms === '1' ? 'selected' : '' %>>1</option>
+                    <option value="2" <%= query.bathrooms === '2' ? 'selected' : '' %>>2</option>
+                    <option value="3" <%= query.bathrooms === '3' ? 'selected' : '' %>>3+</option>
+                </select>
+                <button type="submit">Apply Filters</button>
+            </div>
+        </form>
+
+        <div id="property-list">
+            <% properties.forEach((property, index) => { %>
+                <div class="property-item" data-index="<%= index %>" data-house-type="<%= property.house_type %>" data-price="<%= property.price %>" data-bedrooms="<%= property.bedrooms %>" data-bathrooms="<%= property.bathrooms %>" onclick="window.location.href='/property/<%= property.id %>'">
+                    <% if (property.status === 'Sold') { %>
+                        <div class="sold-overlay">SOLD</div>
+                    <% } %>
+                    <div class="slideshow-container" id="slideshow-<%= index %>">
+                        <% if (property.images && property.images.length > 0) { %>
+                            <% property.images.forEach((imagePath, imageIndex) => { %>
+                                <div class="mySlides fade">
+                                    <div class="numbertext"><%= imageIndex + 1 %> / <%= property.images.length %></div>
+                                    <img src="<%= imagePath %>" style="width:100%">
+                                </div>
+                            <% }); %>
+                            <a class="prev" onclick="plusSlides(-1, <%= index %>); event.stopPropagation();">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1, <%= index %>); event.stopPropagation();">&#10095;</a>
+                        <% } else { %>
+                            <div class="mySlides fade">
+                                <img src="placeholder-image.jpg" style="width:100%">
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="property-item-details">
+                        <h2><%= property.house_type %></h2>
+                        <p><i class="fas fa-map-marker-alt"></i> <%= property.location %></p>
+                        <p><i class="fas fa-dollar-sign"></i> $<%= property.price %></p>
+                        <p><i class="fas fa-bed"></i> <%= property.bedrooms %></p>
+                        <p><i class="fas fa-bath"></i> <%= property.bathrooms %></p>
+                    </div>
+                    <div class="property-details" id="property-details-<%= index %>" style="display:none;">
+                        <h2>Property Details</h2>
+                        <p><i class="fas fa-map-marker-alt"></i> <%= property.location %></p>
+                        <p><strong>House Type:</strong> <%= property.house_type %></p>
+                        <p><strong>Square Footage:</strong> <%= property.sqft %> sqft</p>
+                        <p><i class="fas fa-bed"></i> <%= property.bedrooms %></p>
+                        <p><i class="fas fa-bath"></i> <%= property.bathrooms %></p>
+                        <p><strong>Lot Size:</strong> <%= property.lot_size %> sqft</p>
+                        <p><i class="fas fa-dollar-sign"></i> KSh<%= property.price %></p>
+                        <p><strong>Description:</strong> <%= property.description %></p>
+                        <h3>Uploaded Images</h3>
+                        <div class="property-images">
+                            <% property.images.forEach((imagePath) => { %>
+                                <img src="<%= imagePath %>" alt="Uploaded Image">
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+        <script src="/Public/Javascript/sale.js"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="../Public/stylesheet/login.css">
+    <link rel ="shortcut icon" href="/home/destro/End/Public/images/home_18031529.png" type="image/svg+xml">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form method="POST" action="/login">
+        <h3>Login Here</h3>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red; text-align: center;"><%= error %></p>
+        <% } %>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="password" required>
+
+        <input type="hidden" name="redirect" value="<%= typeof redirect !== 'undefined' ? redirect : '' %>">
+
+        <button type="submit">Log In</button>
+        <div class="register">
+            <p>Don't Have Account? <a href="/signup">SignUp</a></p>
+        </div>
+    </form>
+</body>
+</html>
