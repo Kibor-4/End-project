@@ -1,88 +1,149 @@
 const dbPromise = require('../../database/db');
+const { v4: uuidv4 } = require('uuid');
 
 const authController = {
     login: async (req, res) => {
+        const requestId = uuidv4();
         try {
             const db = await dbPromise;
             const { username, password, redirect } = req.body;
 
-            // Validate input
             if (!username || !password) {
-                return res.render('login', { error: 'Username and password are required', redirect });
+                console.log(`[${requestId}] Login failed: missing username or password, sessionID: ${req.sessionID}`);
+                return res.render('login', { error: 'Username and password are required', redirect, inputValues: { username } });
             }
 
-            // Query the database for the user
-            const query = 'SELECT * FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ?';
-            const [results] = await db.query(query, [username, username, username]);
+            const [results] = await db.query('SELECT * FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ?', [username, username, username]);
 
-            // Check if the user exists
             if (results.length === 0) {
-                return res.render('login', { error: 'Invalid username or password', redirect });
+                console.log(`[${requestId}] Login failed: invalid username or password, sessionID: ${req.sessionID}`);
+                return res.render('login', { error: 'Invalid username or password', redirect, inputValues: { username } });
             }
 
             const user = results[0];
 
-            // Compare plain text passwords (INSECURE - use hashed passwords in production)
             if (password === user.Password) {
-                // Set session data
-                req.session.userId = user.Id;
-                req.session.role = user.role;
+                console.log(`[${requestId}] Session ID before regenerate: ${req.sessionID}`);
 
-                // Redirect based on role
-                if (user.role === 'admin') {
-                    return res.redirect('/admin/settings'); // Redirect admin to /about
-                } else if (user.role === 'user') {
-                    return res.redirect('/admin/settings'); // Redirect user to /all
-                } else {
-                    return res.redirect('/'); // Default redirect for other roles
-                }
+                req.session.regenerate(async (err) => {
+                    if (err) {
+                        console.error(`[${requestId}] Session regeneration error:`, err);
+                        return res.render('login', { error: 'Login failed - please try again', redirect });
+                    }
+                    console.log(`[${requestId}] Session ID after regenerate: ${req.sessionID}`);
+
+                    req.session.user = { id: user.Id, username: user.Username, role: user.role };
+
+                    try {
+                        const result = await db.query(
+                            'UPDATE user_sessions SET user_id = ? WHERE session_id = ?',
+                            [user.Id, req.sessionID]
+                        );
+                        console.log(`[${requestId}] Database update result:`, result);
+                        await db.query(
+                            'UPDATE Users SET last_login = NOW() WHERE Id = ?',
+                            [user.Id]
+                        );
+
+                        let redirectPath = '/user_dashboard';
+                        if (user.role === 'admin') redirectPath = '/admin/settings';
+                        if (redirect && redirect.startsWith('/') && !redirect.includes('//')) redirectPath = redirect;
+
+                        console.log(`[${requestId}] User ${user.Id} logged in successfully, sessionID: ${req.sessionID}`);
+                        return res.redirect(redirectPath);
+                    } catch (dbError) {
+                        console.error(`[${requestId}] Database update error:`, dbError);
+                        return res.render('login', { error: 'Login failed - database error', redirect });
+                    }
+                });
             } else {
-                return res.render('login', { error: 'Invalid username or password', redirect });
+                console.log(`[${requestId}] Login failed: invalid password, sessionID: ${req.sessionID}`);
+                return res.render('login', { error: 'Invalid username or password', redirect, inputValues: { username } });
             }
         } catch (error) {
-            console.error('Login error:', error);
+            console.error(`[${requestId}] Login error:`, error);
             return res.render('login', { error: 'An error occurred during login', redirect: req.body.redirect });
         }
     },
 
     signup: async (req, res) => {
         try {
-            res.render('signup');
+            res.render('signup', { inputValues: {} });
         } catch (err) {
-            console.log(err);
-            res.status(500).send('error');
+            console.error('Signup page error:', err);
+            res.status(500).render('error', { message: 'Server error', user: null });
         }
     },
 
     register: async (req, res) => {
+        const requestId = uuidv4();
         try {
             const db = await dbPromise;
             const { username, email, password, phone, dob } = req.body;
 
-            // Validate input
-            if (!username || !email || !password || !phone || !dob) {
-                return res.render('signup', { error: 'All fields are required' });
+            const errors = [];
+            if (!username) errors.push('Username is required');
+            if (!email || !email.includes('@')) errors.push('Valid email is required');
+            if (!password || password.length < 6) errors.push('Password must be at least 6 characters');
+            if (!phone) errors.push('Phone number is required');
+            if (!dob || isNaN(new Date(dob))) errors.push('Valid date of birth is required');
+
+            if (errors.length > 0) {
+                console.log(`[${requestId}] Registration failed due to input validation errors.`);
+                return res.render('signup', { error: errors.join(', '), inputValues: { username, email, phone, dob } });
             }
 
-            // Store password in plain text (INSECURE - use hashed passwords in production)
-            const query = 'INSERT INTO Users (Username, EMAIL, Password, phone, Date_of_Birth, role) VALUES (?, ?, ?, ?, ?, ?)';
-            await db.query(query, [username, email, password, phone, dob, 'user']);
+            const [existingUsers] = await db.query('SELECT Id FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ?', [username, email, phone]);
 
-            res.redirect('/login');
+            if (existingUsers.length > 0) {
+                console.log(`[${requestId}] Registration failed: Username, email or phone already in use.`);
+                return res.render('signup', { error: 'Username, email or phone already in use', inputValues: { username, email, phone, dob } });
+            }
+
+            const query = `INSERT INTO Users (Username, EMAIL, Password, phone, Date_of_Birth, role, created_at) VALUES (?, ?, ?, ?, ?, 'user', NOW())`;
+            await db.query(query, [username, email, password, phone, dob]);
+
+            req.session.regenerate(() => {
+                req.session.success = 'Registration successful! Please login';
+                console.log(`[${requestId}] User ${username} registered successfully.`);
+                res.redirect('/login');
+            });
         } catch (error) {
-            console.error('Signup error:', error);
-            res.render('signup', { error: 'An error occurred during signup' });
+            console.error(`[${requestId}] Signup error:`, error);
+            res.render('signup', { error: 'An error occurred during registration', inputValues: req.body });
         }
     },
 
     logout: (req, res) => {
+        const requestId = uuidv4();
+        if (!req.session.user) {
+            return res.redirect('/login');
+        }
+
+        const userId = req.session.user.id;
         req.session.destroy((err) => {
             if (err) {
-                console.error('Logout error:', err);
+                console.error(`[${requestId}] Logout error:`, err);
+                return res.status(500).render('error', { message: 'Logout failed', user: null });
             }
+
+            res.clearCookie('sessionId');
+            console.log(`[${requestId}] User ${userId} logged out successfully, sessionID: ${req.sessionID}`);
             res.redirect('/login');
         });
     },
+
+    cleanupSessions: async () => {
+        const requestId = uuidv4();
+        try {
+            const db = await dbPromise;
+            await db.query('DELETE FROM user_sessions WHERE expires < UNIX_TIMESTAMP()');
+            await db.query(`DELETE s FROM user_sessions s LEFT JOIN Users u ON s.user_id = u.Id WHERE s.user_id IS NOT NULL AND u.Id IS NULL`);
+            console.log(`[${requestId}] Session cleanup completed.`);
+        } catch (err) {
+            console.error(`[${requestId}] Session cleanup error:`, err);
+        }
+    }
 };
 
 module.exports = authController;
