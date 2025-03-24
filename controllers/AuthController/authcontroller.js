@@ -23,23 +23,28 @@ const authController = {
             const user = results[0];
 
             if (password === user.Password) {
-                console.log(`[${requestId}] Session ID before regenerate: ${req.sessionID}`);
-
                 req.session.regenerate(async (err) => {
                     if (err) {
                         console.error(`[${requestId}] Session regeneration error:`, err);
                         return res.render('login', { error: 'Login failed - please try again', redirect });
                     }
-                    console.log(`[${requestId}] Session ID after regenerate: ${req.sessionID}`);
 
                     req.session.user = { id: user.Id, username: user.Username, role: user.role };
 
                     try {
-                        const result = await db.query(
-                            'UPDATE user_sessions SET user_id = ? WHERE session_id = ?',
-                            [user.Id, req.sessionID]
+                        // First ensure the session exists in the database
+                        await db.query(
+                            'INSERT INTO user_sessions (session_id, user_id, expires) VALUES (?, ?, UNIX_TIMESTAMP() + ?) ' +
+                            'ON DUPLICATE KEY UPDATE user_id = ?, expires = UNIX_TIMESTAMP() + ?',
+                            [
+                                req.sessionID, 
+                                user.Id, 
+                                Math.floor(req.session.cookie.maxAge / 1000),
+                                user.Id,
+                                Math.floor(req.session.cookie.maxAge / 1000)
+                            ]
                         );
-                        console.log(`[${requestId}] Database update result:`, result);
+
                         await db.query(
                             'UPDATE Users SET last_login = NOW() WHERE Id = ?',
                             [user.Id]
