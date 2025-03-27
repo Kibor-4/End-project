@@ -4,13 +4,11 @@ const MySQLStore = require('express-mysql-session')(session);
 const path = require('path');
 const cors = require('cors');
 const getPool = require('./database/db');
-const fs = require('fs');
 const helmet = require('helmet');
 const { v4: uuidv4 } = require('uuid');
 const rateLimit = require('express-rate-limit');
 const winston = require('winston');
 require('dotenv').config();
-require('crypto').randomBytes(64).toString('hex');
 
 // Configure logger
 const logger = winston.createLogger({
@@ -31,22 +29,6 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-// Route imports
-const userRoutes = require('./router/UserRoutes/signup');
-const authRoutes = require('./router/AuthRoutes/auth');
-const addPropertyRouter = require('./router/UserRoutes/addproperty');
-const saleRouter = require('./router/UserRoutes/salerouter');
-const profile = require('./router/UserRoutes/user');
-const propertydetails = require('./router/UserRoutes/property');
-const userdashboard = require('./router/UserRoutes/dash');
-const home = require('./router/UserRoutes/index');
-const adminRoutes = require('./router/AdminRoutes/dashboard');
-const propertyRoutes = require('./router/AdminRoutes/properties');
-const analyticsRoutes = require('./router/AdminRoutes/analytics');
-const settingsRoutes = require('./router/AdminRoutes/settings');
-const transactionRoutes = require('./router/AdminRoutes/transaction');
-const Users = require('./router/AdminRoutes/user_management');
-
 const app = express();
 
 // Validate environment variables
@@ -60,8 +42,8 @@ for (const envVar of requiredEnvVars) {
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  windowMs: 15 * 60 * 1000,
+  max: 100,
   message: 'Too many requests from this IP, please try again later'
 });
 app.use(limiter);
@@ -96,12 +78,11 @@ const sessionStore = new MySQLStore({
       session_id: 'session_id',
       expires: 'expires',
       data: 'data',
-      //user_id: 'user_id' // Ensure this matches your table structure
     }
   },
   clearExpired: true,
-  checkExpirationInterval: 900000, // 15 minutes
-  expiration: 86400000, // 24 hours
+  checkExpirationInterval: 900000,
+  expiration: 86400000,
   connectionLimit: 10,
   retries: 3,
   onError: (err) => logger.error(`Session store error: ${err.message}`)
@@ -123,7 +104,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    maxAge: 86400000, // 24 hours
+    maxAge: 86400000,
     sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
     domain: process.env.COOKIE_DOMAIN || undefined
   },
@@ -158,7 +139,7 @@ app.use(helmet({
     }
   },
   hsts: {
-    maxAge: 63072000, // 2 years
+    maxAge: 63072000,
     includeSubDomains: true,
     preload: true
   }
@@ -202,94 +183,8 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Combined Home Routes
-app.get('/', (req, res) => {
-  if (req.session.user) {
-    return res.redirect(req.session.user.role === 'admin' ? '/admin' : '/user_dashboard');
-  }
-  res.render('index', { user: null });
-});
-
-// Public routes
-app.use('/', authRoutes);
-app.use('/', userRoutes);
-
-// User routes (require authentication)
-const userRouter = express.Router();
-userRouter.use((req, res, next) => {
-  if (!req.session.user) {
-    logger.warn(`Unauthorized access attempt to ${req.originalUrl}`);
-    return res.status(401).render('error', {
-      message: 'Please login to access this page',
-      statusCode: 401,
-      user: null
-    });
-  }
-  next();
-});
-userRouter.use('/', profile);
-userRouter.use('/', propertydetails);
-userRouter.use('/', userdashboard);
-userRouter.use('/', addPropertyRouter);
-userRouter.use('/', saleRouter);
-app.use('/', userRouter);
-
-// Admin authentication middleware
-const isAdmin = (req, res, next) => {
-  if (req.session.user?.role === 'admin') {
-    return next();
-  }
-  logger.warn(`Unauthorized admin access attempt by user ${req.session.user?.id || 'anonymous'}`);
-  res.status(403).render('error', {
-    message: 'Access denied',
-    statusCode: 403,
-    user: req.session.user || null
-  });
-};
-
-// Protected admin routes
-const adminRouter = express.Router();
-adminRouter.use(isAdmin);
-adminRouter.use('/', adminRoutes);
-adminRouter.use('/', propertyRoutes);
-adminRouter.use('/', analyticsRoutes);
-adminRouter.use('/', settingsRoutes);
-adminRouter.use('/', transactionRoutes);
-adminRouter.use('/', Users);
-app.use('/admin', adminRouter);
-
-// Basic routes
-app.get('/about', (req, res) => {
-  res.render('about', {
-    user: req.session.user || null,
-    currentUrl: req.originalUrl
-  });
-});
-
-// Enhanced logout
-app.get('/logout', (req, res) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-
-  const userId = req.session.user.id;
-  const requestId = req.requestId;
-
-  req.session.destroy((err) => {
-    if (err) {
-      logger.error(`Logout error for user ${userId}: ${err.message}`);
-      return res.status(500).render('error', {
-        message: 'Logout failed',
-        statusCode: 500,
-        user: null
-      });
-    }
-
-    res.clearCookie('sessionId');
-    logger.info(`User ${userId} logged out successfully`);
-    res.redirect('/login');
-  });
-});
+// Routes from router.js
+app.use('/', require('./router/AuthRoutes/router'));
 
 // 404 handler
 app.use((req, res) => {
@@ -319,8 +214,8 @@ app.use((err, req, res, next) => {
 async function startServer() {
   try {
     const pool = await getPool;
-    
-    // Verify database structure
+
+    // Verify database structure.
     try {
       await verifySchema(pool);
       logger.info('Database schema verification successful');
@@ -344,13 +239,14 @@ async function verifySchema(pool) {
   for (const table of requiredTables) {
     const [result] = await pool.query('SHOW TABLES LIKE ?', [table]);
     if (result.length === 0) {
-      throw new Error(`Missing required table: ${table}`);
+        throw new Error(`Missing required table: ${table}`);
+      }
     }
+  
+    // Verify critical columns
+    await pool.query('SELECT id, username, password, role FROM Users LIMIT 1');
+    await pool.query('SELECT session_id, expires, data FROM user_sessions LIMIT 1');
+    await pool.query('SELECT id, title, description FROM Properties LIMIT 1'); //Example Property table check
   }
   
-  // Verify critical columns
-  await pool.query('SELECT id, username, password, role FROM Users LIMIT 1');
-  await pool.query('SELECT session_id, expires, data, user_id FROM user_sessions LIMIT 1');
-}
-
-startServer();
+  startServer();
