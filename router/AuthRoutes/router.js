@@ -10,7 +10,7 @@ const saleRouter = require('../UserRoutes/salerouter');
 const adminRoutes = require('../AdminRoutes/dashboard');
 const propertyRoutes = require('../AdminRoutes/properties');
 const analyticsRoutes = require('../AdminRoutes/analytics');
-const settingsRoutes = require('../AdminRoutes/settings');
+const settingsRoutes = require('../AdminRoutes/Adminsettings');
 const transactionRoutes = require('../AdminRoutes/transaction');
 const Users = require('../AdminRoutes/user_management');
 const logger = require('./logger'); // Assuming you have a logger.js file
@@ -69,7 +69,7 @@ adminRouter.use('/', analyticsRoutes);
 adminRouter.use('/', settingsRoutes);
 adminRouter.use('/', transactionRoutes);
 adminRouter.use('/', Users);
-router.use('/admin', adminRouter);
+router.use('/', adminRouter);
 
 // Basic routes
 router.get('/about', (req, res) => {

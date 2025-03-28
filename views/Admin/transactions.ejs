@@ -25,7 +25,7 @@
         <h1>Transactions</h1>
         <div class="user-info">
           <span>Welcome, Admin</span>
-          <button onclick="logout()">Logout</button>
+          <button id="logoutButton">Logout</button>
         </div>
       </div>
 
@@ -63,10 +63,23 @@
   </div>
 
   <script>
-    function logout() {
-      console.log("Logout clicked");
-      window.location.href = '/logout';
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+      // Logout button handler
+      document.getElementById('logoutButton').addEventListener('click', function() {
+        console.log("Logout clicked");
+        window.location.href = '/logout';
+      });
+
+      // You can add other event listeners here as needed
+      // For example, if you add interactive elements later:
+      /*
+      document.querySelectorAll('.some-element').forEach(element => {
+        element.addEventListener('click', function() {
+          // Handle click event
+        });
+      });
+      */
+    });
   </script>
 </body>
 </html>

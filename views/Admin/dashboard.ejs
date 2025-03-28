@@ -1,56 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Overview</title>
-  <link rel="stylesheet" href="../../Public//stylesheet/dashboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Overview</title>
+    <link rel="stylesheet" href="/Public/stylesheet/dashboard.css"> <!-- Adjusted path for static files -->
 </head>
 <body>
-  <div class="dashboard">
-    <div class="sidebar">
-      <h2>Admin Dashboard</h2>
-      <ul>
-        <li><a href="/admin" class="active">Dashboard</a></li>
-        <li><a href="/admin/properties">Properties</a></li>
-        <li><a href="/admin/users">Users</a></li>
-        <li><a href="/admin/transactions">Transactions</a></li>
-        <li><a href="/admin/analytics">Analytics</a></li>
-        <li><a href="/admin/settings">Settings</a></li>
-      </ul>
+    <div class="dashboard">
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="/admin" class="active">Dashboard</a></li>
+                <li><a href="/admin/properties">Properties</a></li>
+                <li><a href="/admin/users">Users</a></li>
+                <li><a href="/admin/transactions">Transactions</a></li>
+                <li><a href="/admin/analytics">Analytics</a></li>
+                <li><a href="/admin/settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1>Dashboard Overview</h1>
+                <div class="user-info">
+                    <span>Welcome, <%= user ? user.username : 'Admin' %></span>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Properties</h3>
+                    <p><%= totalProperties %></p>
+                </div>
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p><%= totalUsers %></p>
+                </div>
+                <div class="card">
+                    <h3>Total Transactions</h3>
+                    <p><%= totalTransactions %></p>
+                </div>
+            </div>
+
+            <!-- Toast container -->
+            <div id="toast" class="toast" style="display: none;"></div>
+        </div>
     </div>
 
-    <div class="main-content">
-      <div class="header">
-        <h1>Dashboard Overview</h1>
-        <div class="user-info">
-          <span>Welcome, Admin</span>
-          <button onclick="logout()">Logout</button>
-        </div>
-      </div>
+    <script>
+        function logout() {
+            showToast('Logging out...', 'info');
+            fetch('/logout', { method: 'GET' })
+                .then(response => {
+                    if (response.redirected) {
+                        showToast('Logged out successfully!', 'success');
+                        setTimeout(() => {
+                            window.location.href = response.url; // Follow redirect to /login
+                        }, 1000); // Delay to show success toast
+                    }
+                })
+                .catch(error => {
+                    console.error('Logout error:', error);
+                    showToast('Logout failed.', 'error');
+                });
+        }
 
-      <div class="cards">
-        <div class="card">
-          <h3>Total Properties</h3>
-          <p><%= totalProperties %></p>
-        </div>
-        <div class="card">
-          <h3>Total Users</h3>
-          <p><%= totalUsers %></p>
-        </div>
-        <div class="card">
-          <h3>Total Transactions</h3>
-          <p><%= totalTransactions %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function logout() {
-      console.log("Logout clicked");
-      window.location.href = '/logout';
-    }
-  </script>
+        // Toast notification function
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast ' + type; // Add type for styling
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+        }
+    </script>
 </body>
 </html>

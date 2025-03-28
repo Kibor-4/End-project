@@ -8,12 +8,17 @@ const authController = {
             const db = await dbPromise;
             const { username, password, redirect } = req.body;
 
+            // Input validation
             if (!username || !password) {
                 console.log(`[${requestId}] Login failed: missing username or password, sessionID: ${req.sessionID}`);
                 return res.render('login', { error: 'Username and password are required', redirect, inputValues: { username } });
             }
 
-            const [results] = await db.query('SELECT * FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ?', [username, username, username]);
+            // Query user by username, email, or phone
+            const [results] = await db.query(
+                'SELECT * FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ?',
+                [username, username, username]
+            );
 
             if (results.length === 0) {
                 console.log(`[${requestId}] Login failed: invalid username or password, sessionID: ${req.sessionID}`);
@@ -22,6 +27,7 @@ const authController = {
 
             const user = results[0];
 
+            // Check password (plain text comparison - consider hashing in production)
             if (password === user.Password) {
                 req.session.regenerate(async (err) => {
                     if (err) {
@@ -29,33 +35,41 @@ const authController = {
                         return res.render('login', { error: 'Login failed - please try again', redirect });
                     }
 
+                    // Set session user data
                     req.session.user = { id: user.Id, username: user.Username, role: user.role };
+                    console.log(`[${requestId}] Session set:`, req.session.user);
 
                     try {
-                        // First ensure the session exists in the database
+                        // Update user_sessions table
                         await db.query(
                             'INSERT INTO user_sessions (session_id, user_id, expires) VALUES (?, ?, UNIX_TIMESTAMP() + ?) ' +
                             'ON DUPLICATE KEY UPDATE user_id = ?, expires = UNIX_TIMESTAMP() + ?',
                             [
-                                req.sessionID, 
-                                user.Id, 
+                                req.sessionID,
+                                user.Id,
                                 Math.floor(req.session.cookie.maxAge / 1000),
                                 user.Id,
                                 Math.floor(req.session.cookie.maxAge / 1000)
                             ]
                         );
 
-                        await db.query(
-                            'UPDATE Users SET last_login = NOW() WHERE Id = ?',
-                            [user.Id]
-                        );
+                        // Update last login
+                        await db.query('UPDATE Users SET last_login = NOW() WHERE Id = ?', [user.Id]);
 
+                        // Determine redirect path
                         let redirectPath = '/user_dashboard';
                         if (user.role === 'admin') redirectPath = '/admin/settings';
                         if (redirect && redirect.startsWith('/') && !redirect.includes('//')) redirectPath = redirect;
 
-                        console.log(`[${requestId}] User ${user.Id} logged in successfully, sessionID: ${req.sessionID}`);
-                        return res.redirect(redirectPath);
+                        // Save session before redirect
+                        req.session.save((saveErr) => {
+                            if (saveErr) {
+                                console.error(`[${requestId}] Session save error:`, saveErr);
+                                return res.render('login', { error: 'Login failed - session error', redirect });
+                            }
+                            console.log(`[${requestId}] User ${user.Id} logged in, redirecting to ${redirectPath}`);
+                            return res.redirect(redirectPath);
+                        });
                     } catch (dbError) {
                         console.error(`[${requestId}] Database update error:`, dbError);
                         return res.render('login', { error: 'Login failed - database error', redirect });
@@ -86,6 +100,7 @@ const authController = {
             const db = await dbPromise;
             const { username, email, password, phone, dob } = req.body;
 
+            // Input validation
             const errors = [];
             if (!username) errors.push('Username is required');
             if (!email || !email.includes('@')) errors.push('Valid email is required');
@@ -98,16 +113,22 @@ const authController = {
                 return res.render('signup', { error: errors.join(', '), inputValues: { username, email, phone, dob } });
             }
 
-            const [existingUsers] = await db.query('SELECT Id FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ?', [username, email, phone]);
+            // Check for existing user
+            const [existingUsers] = await db.query(
+                'SELECT Id FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ?',
+                [username, email, phone]
+            );
 
             if (existingUsers.length > 0) {
                 console.log(`[${requestId}] Registration failed: Username, email or phone already in use.`);
                 return res.render('signup', { error: 'Username, email or phone already in use', inputValues: { username, email, phone, dob } });
             }
 
+            // Insert new user
             const query = `INSERT INTO Users (Username, EMAIL, Password, phone, Date_of_Birth, role, created_at) VALUES (?, ?, ?, ?, ?, 'user', NOW())`;
             await db.query(query, [username, email, password, phone, dob]);
 
+            // Regenerate session and redirect to login
             req.session.regenerate(() => {
                 req.session.success = 'Registration successful! Please login';
                 console.log(`[${requestId}] User ${username} registered successfully.`);
@@ -133,7 +154,7 @@ const authController = {
             }
 
             res.clearCookie('sessionId');
-            console.log(`[${requestId}] User ${userId} logged out successfully, sessionID: ${req.sessionID}`);
+            console.log(`[${requestId}] User ${userId} logged out successfully, sessionID: ${req.sessionID || 'destroyed'}`);
             res.redirect('/login');
         });
     },
@@ -142,8 +163,12 @@ const authController = {
         const requestId = uuidv4();
         try {
             const db = await dbPromise;
+            // Remove expired sessions
             await db.query('DELETE FROM user_sessions WHERE expires < UNIX_TIMESTAMP()');
-            await db.query(`DELETE s FROM user_sessions s LEFT JOIN Users u ON s.user_id = u.Id WHERE s.user_id IS NOT NULL AND u.Id IS NULL`);
+            // Remove sessions for deleted users
+            await db.query(
+                `DELETE s FROM user_sessions s LEFT JOIN Users u ON s.user_id = u.Id WHERE s.user_id IS NOT NULL AND u.Id IS NULL`
+            );
             console.log(`[${requestId}] Session cleanup completed.`);
         } catch (err) {
             console.error(`[${requestId}] Session cleanup error:`, err);

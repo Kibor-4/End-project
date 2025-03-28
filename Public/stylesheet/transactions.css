@@ -172,3 +172,26 @@ body {
     td:nth-of-type(5):before { content: "Date"; }
     td:nth-of-type(6):before { content: "Status"; }
   }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.toast.success {
+    background-color: #28a745; /* Green */
+}
+
+.toast.error {
+    background-color: #dc3545; /* Red */
+}
+
+.toast.info {
+    background-color: #17a2b8; /* Cyan */
+}

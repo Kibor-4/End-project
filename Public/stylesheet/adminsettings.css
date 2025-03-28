@@ -1,122 +1,177 @@
-/* styles.css */
-
-body {
-font-family: sans-serif;
+font-family: Arial, sans-serif;
 margin: 0;
 padding: 0;
 background-color: #f4f4f4;
-color: #333;
+}
+
+/* Header */
+header {
+background-color: #333;
+color: #fff;
+padding: 10px 20px;
 display: flex;
-flex-direction: column;
-min-height: 100vh;
+justify-content: space-between;
+align-items: center;
 }
 
-.main-content {
-flex: 1;
-max-width: 800px;
-margin: 20px auto;
-padding: 20px;
-background-color: white;
-border-radius: 8px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-text-align: center;
-margin-bottom: 20px;
-color: #000;
-}
-
-.form-container {
-padding: 20px;
-}
-
-.form-group {
-margin-bottom: 20px;
-}
-
-label {
-display: block;
-margin-bottom: 5px;
+header .logo {
+font-size: 24px;
 font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"],
-select {
-width: calc(100% - 12px);
-padding: 10px;
-border: 1px solid #ddd;
-border-radius: 4px;
-box-sizing: border-box;
+header .user-info {
+display: flex;
+align-items: center;
 }
 
-select[multiple] {
-height: 100px; /* Adjust height as needed */
+header .user-info span {
+margin-right: 10px;
 }
 
-input[type="checkbox"] {
-margin-left: 10px;
-}
-
-.btn {
+header .btn-logout {
 background-color: #4CAF50;
-color: white;
-padding: 10px 15px;
+color: #fff;
 border: none;
-border-radius: 4px;
+padding: 8px 16px;
 cursor: pointer;
-width: auto;
+border-radius: 4px;
 }
 
-.btn:hover {
+header .btn-logout:hover {
 background-color: #45a049;
 }
 
-/* Header and Footer styles (assuming shared files) */
-header, footer{
-background-color: #000;
-color: white;
-padding: 10px;
-text-align: center;
+/* Dashboard Layout */
+.dashboard-container {
+display: flex;
+min-height: calc(100vh - 50px);
 }
 
-header{
-text-align: left;
-}
-
-/* Sidebar styles (assuming shared files) */
-aside {
-width: 200px; /* Adjust as needed */
-background-color: #f0f0f0;
+/* Sidebar */
+.sidebar {
+width: 250px;
+background-color: #444;
+color: #fff;
 padding: 20px;
-height: 100vh; /* Make sidebar full height */
 }
 
-/*Layout adjustments for sidebar*/
-body{
-flex-direction: row;
+.sidebar ul {
+list-style: none;
+padding: 0;
 }
 
-.main-content{
-margin-left: 200px;
-margin-top: 0px;
-margin-bottom: 0px;
+.sidebar ul li {
+margin: 15px 0;
 }
 
-aside{
-height: auto;
+.sidebar ul li a {
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+display: block;
+padding: 8px 0;
 }
 
-@media(max-width: 800px){
-body{
+.sidebar ul li a:hover {
+color: #4CAF50;
+}
+
+.sidebar ul li a.active {
+color: #4CAF50;
+font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+flex: 1;
+padding: 20px;
+}
+
+.main-content h1 {
+margin-top: 0;
+color: #333;
+}
+
+/* Form Container */
+.form-container {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+max-width: 500px;
+}
+
+.form-container h2 {
+margin-top: 0;
+color: #333;
+}
+
+.form-group {
+margin-bottom: 15px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+color: #555;
+}
+
+.form-group input {
+width: 100%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+box-sizing: border-box;
+}
+
+.form-group input:focus {
+outline: none;
+border-color: #4CAF50;
+}
+
+.btn-submit {
+background-color: #4CAF50;
+color: #fff;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+border-radius: 5px;
+font-size: 16px;
+width: 100%;
+}
+
+.btn-submit:hover {
+background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.dashboard-container {
     flex-direction: column;
 }
-aside{
+
+.sidebar {
     width: 100%;
-    margin-bottom: 20px;
+    height: auto;
+    padding: 15px;
 }
-.main-content{
+
+.sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sidebar ul li {
+    margin: 5px 0;
+}
+
+.main-content {
     margin-left: 0;
+    padding: 15px;
 }
+
+.form-container {
+    max-width: 100%;
 }

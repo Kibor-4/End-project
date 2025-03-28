@@ -1,4 +1,3 @@
-// settingsController.js
 const db = require('../../database/db'); // Import the MySQL connection
 
 const settingsController = {
@@ -11,7 +10,7 @@ const settingsController = {
                 return res.redirect('/login'); // Redirect to login if the user is not logged in
             }
 
-            res.render('settings', { user }); // Pass the user object to the template
+            res.render('Adminsettings', { user }); // Pass the user object to the template
         } catch (error) {
             console.error(error);
             res.status(500).send('Internal Server Error');
