@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const home = require('../UserRoutes/index');
 const authRoutes = require('./auth');
 const userRoutes = require('../UserRoutes/signup');
 const profile = require('../UserRoutes/user');
@@ -13,16 +14,8 @@ const analyticsRoutes = require('../AdminRoutes/analytics');
 const settingsRoutes = require('../AdminRoutes/Adminsettings');
 const transactionRoutes = require('../AdminRoutes/transaction');
 const Users = require('../AdminRoutes/user_management');
-const logger = require('./logger'); // Assuming you have a logger.js file
-
-// Combined Home Routes
-router.get('/', (req, res) => {
-  if (req.session.user) {
-    return res.redirect(req.session.user.role === 'admin' ? '/admin' : '/user_dashboard');
-  }
-  res.render('index', { user: null });
-});
-
+const logger = require('./logger'); 
+const chats = require('../UserRoutes/chat');
 // Public routes
 router.use('/', authRoutes);
 router.use('/', userRoutes);
@@ -40,6 +33,7 @@ userRouter.use((req, res, next) => {
   }
   next();
 });
+userRouter.use('/',home);
 userRouter.use('/', profile);
 userRouter.use('/', propertydetails);
 userRouter.use('/', userdashboard);

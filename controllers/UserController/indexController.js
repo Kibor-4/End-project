@@ -1,4 +1,3 @@
-// Imports from the provided file:
 const express = require('express');
 
 function renderIndex(req, res) {
@@ -14,13 +13,13 @@ function handleRedirect(req, res) {
 
   switch (action) {
     case 'sell':
-      redirectURL = `/sell?location=${location}&propertyType=${propertyType}`;
+      redirectURL = `/sale?location=${location}&propertyType=${propertyType}`;
       break;
     case 'rent':
       redirectURL = `/rent?location=${location}&propertyType=${propertyType}`;
       break;
     case 'buy':
-      redirectURL = `/buy?location=${location}&propertyType=${propertyType}`;
+      redirectURL = `/all?location=${location}&propertyType=${propertyType}`;
       break;
     default:
       res.send('Invalid action');
@@ -45,7 +44,7 @@ function renderRent(req, res) {
 function renderBuy(req, res) {
   const location = req.query.location;
   const propertyType = req.query.propertyType;
-  res.render('buy', { location: location, propertyType: propertyType });
+  res.render('sale', { location: location, propertyType: propertyType });
 }
 
 module.exports = {
