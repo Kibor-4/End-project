@@ -669,3 +669,34 @@
 [2025-04-19T12:48:15.715Z] [DEBUG] Connection %d acquired
 [2025-04-19T12:48:15.726Z] [DEBUG] Connection %d released
 [2025-04-19T12:48:15.769Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T14:33:48.402Z] [DEBUG] New database connection established
+[2025-04-19T14:33:48.403Z] [DEBUG] Connection %d acquired
+[2025-04-19T14:33:48.404Z] [DEBUG] New database connection established
+[2025-04-19T14:33:48.404Z] [DEBUG] Connection %d acquired
+[2025-04-19T14:33:48.405Z] [DEBUG] Connection %d released
+[2025-04-19T14:33:48.409Z] [DEBUG] Connection %d acquired
+[2025-04-19T14:33:48.409Z] [DEBUG] New database connection established
+[2025-04-19T14:33:48.412Z] [DEBUG] Connection %d released
+[2025-04-19T14:33:48.412Z] [DEBUG] Connection %d acquired
+[2025-04-19T14:33:48.413Z] [DEBUG] Connection %d released
+[2025-04-19T14:33:48.413Z] [INFO] Database connection established successfully
+[2025-04-19T14:33:48.418Z] [DEBUG] Connection %d released
+[2025-04-19T14:33:48.419Z] [DEBUG] Connection %d acquired
+[2025-04-19T14:33:48.429Z] [DEBUG] Connection %d released
+[2025-04-19T14:33:48.429Z] [DEBUG] Connection %d acquired
+[2025-04-19T14:33:48.433Z] [DEBUG] Connection %d released
+[2025-04-19T14:33:49.548Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:36:47.764Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:38:53.530Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:41:06.676Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:41:12.728Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:41:13.350Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:41:13.533Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:41:13.716Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:41:13.845Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:44:37.547Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:46:12.222Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:55:51.309Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:55:52.276Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T14:55:52.724Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T15:04:23.659Z] [WARN] Unauthorized access attempt to /favicon.svg
