@@ -58,3 +58,614 @@
 [2025-03-31T22:59:58.365Z] [WARN] Unauthorized admin access attempt by user 76
 [2025-03-31T23:06:54.383Z] [WARN] Unauthorized admin access attempt by user 76
 [2025-03-31T23:09:30.306Z] [WARN] Unauthorized admin access attempt by user 58
+[2025-04-18T10:43:58.584Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T07:26:24.688Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T07:26:24.826Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T07:42:19.236Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T07:44:11.866Z] [WARN] Unauthorized access attempt to /login
+[2025-04-19T07:44:11.903Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T08:59:45.393Z] [DEBUG] New database connection established
+[2025-04-19T08:59:45.394Z] [DEBUG] Connection %d acquired
+[2025-04-19T08:59:45.395Z] [DEBUG] New database connection established
+[2025-04-19T08:59:45.395Z] [DEBUG] Connection %d acquired
+[2025-04-19T08:59:45.399Z] [DEBUG] Connection %d acquired
+[2025-04-19T08:59:45.399Z] [DEBUG] New database connection established
+[2025-04-19T08:59:45.399Z] [DEBUG] Connection %d released
+[2025-04-19T08:59:45.404Z] [DEBUG] Connection %d released
+[2025-04-19T08:59:45.404Z] [INFO] Database connection established successfully
+[2025-04-19T08:59:45.410Z] [DEBUG] Connection %d released
+[2025-04-19T08:59:45.411Z] [DEBUG] Connection %d acquired
+[2025-04-19T08:59:45.426Z] [DEBUG] Connection %d released
+[2025-04-19T08:59:45.426Z] [DEBUG] Connection %d acquired
+[2025-04-19T08:59:45.429Z] [DEBUG] Connection %d released
+[2025-04-19T08:59:45.430Z] [DEBUG] Connection %d acquired
+[2025-04-19T08:59:45.435Z] [DEBUG] Connection %d released
+[2025-04-19T09:00:21.884Z] [DEBUG] New database connection established
+[2025-04-19T09:00:21.885Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:00:21.886Z] [DEBUG] New database connection established
+[2025-04-19T09:00:21.886Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:00:21.887Z] [DEBUG] Connection %d released
+[2025-04-19T09:00:21.891Z] [DEBUG] New database connection established
+[2025-04-19T09:00:21.891Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:00:21.894Z] [DEBUG] Connection %d released
+[2025-04-19T09:00:21.895Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:00:21.895Z] [DEBUG] Connection %d released
+[2025-04-19T09:00:21.895Z] [INFO] Database connection established successfully
+[2025-04-19T09:00:21.902Z] [DEBUG] Connection %d released
+[2025-04-19T09:00:21.902Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:00:21.908Z] [DEBUG] Connection %d released
+[2025-04-19T09:00:21.908Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:00:21.917Z] [DEBUG] Connection %d released
+[2025-04-19T09:00:27.331Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T09:02:44.546Z] [DEBUG] New database connection established
+[2025-04-19T09:02:44.547Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:02:44.548Z] [DEBUG] New database connection established
+[2025-04-19T09:02:44.548Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:02:44.549Z] [DEBUG] New database connection established
+[2025-04-19T09:02:44.549Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:02:44.549Z] [DEBUG] Connection %d released
+[2025-04-19T09:02:44.556Z] [DEBUG] Connection %d released
+[2025-04-19T09:02:44.556Z] [INFO] Database connection established successfully
+[2025-04-19T09:02:44.558Z] [DEBUG] Connection %d released
+[2025-04-19T09:02:44.558Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:02:44.562Z] [DEBUG] Connection %d released
+[2025-04-19T09:02:44.562Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:02:44.573Z] [DEBUG] Connection %d released
+[2025-04-19T09:02:44.573Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:02:44.579Z] [DEBUG] Connection %d released
+[2025-04-19T09:02:51.608Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T09:02:51.662Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T09:02:55.028Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:03:03.546Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:03:03.548Z] [DEBUG] Connection %d released
+[2025-04-19T09:03:03.613Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:03:28.027Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:03:28.029Z] [DEBUG] Connection %d released
+[2025-04-19T09:03:28.082Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:03:29.058Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T09:04:06.790Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:04:06.795Z] [DEBUG] Connection %d released
+[2025-04-19T09:04:06.931Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:04:15.073Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:04:15.074Z] [DEBUG] Connection %d released
+[2025-04-19T09:04:15.113Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:10:52.277Z] [DEBUG] New database connection established
+[2025-04-19T09:10:52.279Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:10:52.280Z] [DEBUG] New database connection established
+[2025-04-19T09:10:52.280Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:10:52.282Z] [DEBUG] New database connection established
+[2025-04-19T09:10:52.283Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:10:52.283Z] [DEBUG] Connection %d released
+[2025-04-19T09:10:52.292Z] [DEBUG] Connection %d released
+[2025-04-19T09:10:52.292Z] [INFO] Database connection established successfully
+[2025-04-19T09:10:52.296Z] [DEBUG] Connection %d released
+[2025-04-19T09:10:52.296Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:10:52.307Z] [DEBUG] Connection %d released
+[2025-04-19T09:10:52.307Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:10:52.312Z] [DEBUG] Connection %d released
+[2025-04-19T09:10:52.313Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:10:52.328Z] [DEBUG] Connection %d released
+[2025-04-19T09:10:58.021Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T09:11:52.868Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:11:52.873Z] [DEBUG] Connection %d released
+[2025-04-19T09:11:52.985Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:11:58.449Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:11:58.452Z] [DEBUG] Connection %d released
+[2025-04-19T09:11:58.513Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:31:15.310Z] [DEBUG] New database connection established
+[2025-04-19T09:31:15.312Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:31:15.314Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:31:15.314Z] [DEBUG] New database connection established
+[2025-04-19T09:31:15.315Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:31:15.315Z] [DEBUG] New database connection established
+[2025-04-19T09:31:15.316Z] [DEBUG] Connection %d released
+[2025-04-19T09:31:15.320Z] [DEBUG] Connection %d released
+[2025-04-19T09:31:15.320Z] [INFO] Database connection established successfully
+[2025-04-19T09:31:15.326Z] [DEBUG] Connection %d released
+[2025-04-19T09:31:15.326Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:31:15.333Z] [DEBUG] Connection %d released
+[2025-04-19T09:31:15.333Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:31:15.342Z] [DEBUG] Connection %d released
+[2025-04-19T09:31:15.342Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:31:15.348Z] [DEBUG] Connection %d released
+[2025-04-19T09:31:18.759Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T09:32:06.298Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:32:06.302Z] [DEBUG] Connection %d released
+[2025-04-19T09:32:06.404Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T09:32:11.186Z] [DEBUG] Connection %d acquired
+[2025-04-19T09:32:11.189Z] [DEBUG] Connection %d released
+[2025-04-19T09:32:11.235Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:00:55.728Z] [DEBUG] New database connection established
+[2025-04-19T10:00:55.729Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:00:55.731Z] [DEBUG] New database connection established
+[2025-04-19T10:00:55.731Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:00:55.734Z] [DEBUG] New database connection established
+[2025-04-19T10:00:55.734Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:00:55.735Z] [DEBUG] Connection %d released
+[2025-04-19T10:00:55.746Z] [DEBUG] Connection %d released
+[2025-04-19T10:00:55.747Z] [INFO] Database connection established successfully
+[2025-04-19T10:00:55.753Z] [DEBUG] Connection %d released
+[2025-04-19T10:00:55.754Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:00:55.761Z] [DEBUG] Connection %d released
+[2025-04-19T10:00:55.761Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:00:55.777Z] [DEBUG] Connection %d released
+[2025-04-19T10:00:55.787Z] [DEBUG] Connection %d released
+[2025-04-19T10:00:55.778Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:01:12.723Z] [WARN] Unauthorized access attempt to /about
+[2025-04-19T10:01:12.808Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T10:10:05.178Z] [DEBUG] New database connection established
+[2025-04-19T10:10:05.179Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:10:05.179Z] [DEBUG] Connection %d released
+[2025-04-19T10:10:05.183Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:10:05.183Z] [DEBUG] New database connection established
+[2025-04-19T10:10:05.184Z] [DEBUG] New database connection established
+[2025-04-19T10:10:05.184Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:10:05.185Z] [DEBUG] Connection %d released
+[2025-04-19T10:10:05.185Z] [INFO] Database connection established successfully
+[2025-04-19T10:10:05.193Z] [DEBUG] Connection %d released
+[2025-04-19T10:10:05.194Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:10:05.207Z] [DEBUG] Connection %d released
+[2025-04-19T10:10:05.208Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:10:05.211Z] [DEBUG] Connection %d released
+[2025-04-19T10:10:05.211Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:10:05.214Z] [DEBUG] Connection %d released
+[2025-04-19T10:10:08.964Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:10:11.160Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:10:11.163Z] [DEBUG] Connection %d released
+[2025-04-19T10:10:11.210Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:15:12.958Z] [DEBUG] New database connection established
+[2025-04-19T10:15:12.959Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:15:12.960Z] [DEBUG] New database connection established
+[2025-04-19T10:15:12.960Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:15:12.961Z] [DEBUG] New database connection established
+[2025-04-19T10:15:12.961Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:15:12.962Z] [DEBUG] Connection %d released
+[2025-04-19T10:15:12.966Z] [DEBUG] Connection %d released
+[2025-04-19T10:15:12.967Z] [INFO] Database connection established successfully
+[2025-04-19T10:15:12.973Z] [DEBUG] Connection %d released
+[2025-04-19T10:15:12.973Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:15:12.985Z] [DEBUG] Connection %d released
+[2025-04-19T10:15:12.985Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:15:12.987Z] [DEBUG] Connection %d released
+[2025-04-19T10:15:12.988Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:15:12.990Z] [DEBUG] Connection %d released
+[2025-04-19T10:15:19.577Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T10:15:20.309Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T10:15:20.388Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T10:15:26.069Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:15:27.638Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:15:27.642Z] [DEBUG] Connection %d released
+[2025-04-19T10:15:27.693Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:25:44.357Z] [DEBUG] New database connection established
+[2025-04-19T10:25:44.358Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:25:44.359Z] [DEBUG] New database connection established
+[2025-04-19T10:25:44.359Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:25:44.360Z] [DEBUG] Connection %d released
+[2025-04-19T10:25:44.364Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:25:44.364Z] [DEBUG] New database connection established
+[2025-04-19T10:25:44.367Z] [DEBUG] Connection %d released
+[2025-04-19T10:25:44.367Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:25:44.371Z] [DEBUG] Connection %d released
+[2025-04-19T10:25:44.371Z] [INFO] Database connection established successfully
+[2025-04-19T10:25:44.372Z] [DEBUG] Connection %d released
+[2025-04-19T10:25:44.373Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:25:44.377Z] [DEBUG] Connection %d released
+[2025-04-19T10:25:44.377Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:25:44.391Z] [DEBUG] Connection %d released
+[2025-04-19T10:35:46.123Z] [DEBUG] New database connection established
+[2025-04-19T10:35:46.124Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:35:46.125Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:35:46.125Z] [DEBUG] New database connection established
+[2025-04-19T10:35:46.127Z] [DEBUG] New database connection established
+[2025-04-19T10:35:46.127Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:35:46.128Z] [DEBUG] Connection %d released
+[2025-04-19T10:35:46.135Z] [DEBUG] Connection %d released
+[2025-04-19T10:35:46.135Z] [INFO] Database connection established successfully
+[2025-04-19T10:35:46.142Z] [DEBUG] Connection %d released
+[2025-04-19T10:35:46.143Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:35:46.154Z] [DEBUG] Connection %d released
+[2025-04-19T10:35:46.154Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:35:46.162Z] [DEBUG] Connection %d released
+[2025-04-19T10:35:46.169Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:35:46.184Z] [DEBUG] Connection %d released
+[2025-04-19T10:38:54.519Z] [DEBUG] New database connection established
+[2025-04-19T10:38:54.520Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:38:54.520Z] [DEBUG] New database connection established
+[2025-04-19T10:38:54.520Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:38:54.522Z] [DEBUG] New database connection established
+[2025-04-19T10:38:54.522Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:38:54.522Z] [DEBUG] Connection %d released
+[2025-04-19T10:38:54.532Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:38:54.532Z] [DEBUG] Connection %d released
+[2025-04-19T10:38:54.530Z] [INFO] Database connection established successfully
+[2025-04-19T10:38:54.536Z] [DEBUG] Connection %d released
+[2025-04-19T10:38:54.536Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:38:54.530Z] [DEBUG] Connection %d released
+[2025-04-19T10:38:54.546Z] [DEBUG] Connection %d released
+[2025-04-19T10:38:54.547Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:38:54.550Z] [DEBUG] Connection %d released
+[2025-04-19T10:39:00.819Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:39:00.824Z] [DEBUG] Connection %d released
+[2025-04-19T10:39:00.904Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:39:03.790Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:39:03.791Z] [DEBUG] Connection %d released
+[2025-04-19T10:39:03.829Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:39:37.740Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:39:37.742Z] [DEBUG] Connection %d released
+[2025-04-19T10:39:37.787Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:39:42.144Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T10:39:43.047Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T10:39:43.188Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T10:39:44.329Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:39:45.716Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:39:45.717Z] [DEBUG] Connection %d released
+[2025-04-19T10:39:45.771Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:41:38.577Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T10:42:33.378Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:42:33.382Z] [DEBUG] Connection %d released
+[2025-04-19T10:42:33.485Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:42:37.149Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:42:37.151Z] [DEBUG] Connection %d released
+[2025-04-19T10:42:37.188Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:46:49.573Z] [DEBUG] New database connection established
+[2025-04-19T10:46:49.574Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:46:49.575Z] [DEBUG] New database connection established
+[2025-04-19T10:46:49.576Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:46:49.576Z] [DEBUG] New database connection established
+[2025-04-19T10:46:49.577Z] [DEBUG] Connection %d released
+[2025-04-19T10:46:49.575Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:46:49.583Z] [DEBUG] Connection %d released
+[2025-04-19T10:46:49.583Z] [INFO] Database connection established successfully
+[2025-04-19T10:46:49.585Z] [DEBUG] Connection %d released
+[2025-04-19T10:46:49.586Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:46:49.590Z] [DEBUG] Connection %d released
+[2025-04-19T10:46:49.590Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:46:49.601Z] [DEBUG] Connection %d released
+[2025-04-19T10:46:49.601Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:46:49.609Z] [DEBUG] Connection %d released
+[2025-04-19T10:46:55.035Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T10:47:38.101Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:47:38.104Z] [DEBUG] Connection %d released
+[2025-04-19T10:47:38.203Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T10:47:41.001Z] [DEBUG] Connection %d acquired
+[2025-04-19T10:47:41.004Z] [DEBUG] Connection %d released
+[2025-04-19T10:47:41.041Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:35:03.876Z] [DEBUG] New database connection established
+[2025-04-19T11:35:03.878Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:03.877Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:03.878Z] [DEBUG] New database connection established
+[2025-04-19T11:35:03.879Z] [DEBUG] New database connection established
+[2025-04-19T11:35:03.879Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:03.880Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:03.884Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:03.884Z] [INFO] Database connection established successfully
+[2025-04-19T11:35:03.888Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:03.888Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:03.895Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:03.895Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:03.900Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:03.902Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:03.912Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:08.387Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:08.391Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:08.449Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:35:09.783Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:09.785Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:09.829Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:35:10.125Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:10.127Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:10.165Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:35:10.310Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:10.311Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:10.356Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:35:10.470Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:35:10.475Z] [DEBUG] Connection %d released
+[2025-04-19T11:35:10.528Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:35:13.733Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T11:35:15.041Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T11:35:15.093Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:42:33.114Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:42:34.032Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T11:42:49.497Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T11:44:12.674Z] [WARN] Unauthorized access attempt to /submit
+[2025-04-19T11:44:12.730Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:44:36.678Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:44:38.305Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:44:40.564Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:44:43.513Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:45:03.080Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:45:04.194Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T11:45:05.482Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T11:45:28.797Z] [WARN] Unauthorized access attempt to /submit
+[2025-04-19T11:45:28.848Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:45:51.222Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:45:51.335Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:45:59.842Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:45:59.861Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:46:03.602Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T11:46:04.541Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T11:46:04.564Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T11:59:03.612Z] [DEBUG] New database connection established
+[2025-04-19T11:59:03.613Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:03.615Z] [DEBUG] New database connection established
+[2025-04-19T11:59:03.615Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:03.617Z] [DEBUG] New database connection established
+[2025-04-19T11:59:03.617Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:03.617Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:03.621Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:03.621Z] [INFO] Database connection established successfully
+[2025-04-19T11:59:03.628Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:03.628Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:03.636Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:03.636Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:03.656Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:03.657Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:03.660Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:23.429Z] [DEBUG] New database connection established
+[2025-04-19T11:59:23.434Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:23.436Z] [DEBUG] New database connection established
+[2025-04-19T11:59:23.436Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:23.438Z] [DEBUG] New database connection established
+[2025-04-19T11:59:23.439Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:23.440Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:23.452Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:23.453Z] [INFO] Database connection established successfully
+[2025-04-19T11:59:23.459Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:23.460Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:23.471Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:23.471Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:23.489Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:23.489Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:23.493Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:29.222Z] [DEBUG] New database connection established
+[2025-04-19T11:59:29.223Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:29.224Z] [DEBUG] New database connection established
+[2025-04-19T11:59:29.224Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:29.225Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:29.225Z] [DEBUG] New database connection established
+[2025-04-19T11:59:29.225Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:29.231Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:29.232Z] [INFO] Database connection established successfully
+[2025-04-19T11:59:29.235Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:29.236Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:29.244Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:29.244Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:29.261Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:29.266Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:29.288Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:47.311Z] [DEBUG] New database connection established
+[2025-04-19T11:59:47.313Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:47.314Z] [DEBUG] New database connection established
+[2025-04-19T11:59:47.315Z] [DEBUG] New database connection established
+[2025-04-19T11:59:47.314Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:47.316Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:47.315Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:47.322Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:47.322Z] [INFO] Database connection established successfully
+[2025-04-19T11:59:47.325Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:47.326Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:47.332Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:47.333Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:47.343Z] [DEBUG] Connection %d released
+[2025-04-19T11:59:47.343Z] [DEBUG] Connection %d acquired
+[2025-04-19T11:59:47.351Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:17.350Z] [DEBUG] New database connection established
+[2025-04-19T12:00:17.350Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:17.353Z] [DEBUG] New database connection established
+[2025-04-19T12:00:17.352Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:17.352Z] [DEBUG] New database connection established
+[2025-04-19T12:00:17.353Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:17.353Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:17.357Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:17.357Z] [INFO] Database connection established successfully
+[2025-04-19T12:00:17.361Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:17.361Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:17.368Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:17.368Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:17.377Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:17.378Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:17.382Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:29.101Z] [DEBUG] New database connection established
+[2025-04-19T12:00:29.102Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:29.102Z] [DEBUG] New database connection established
+[2025-04-19T12:00:29.102Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:29.104Z] [DEBUG] New database connection established
+[2025-04-19T12:00:29.104Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:29.104Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:29.108Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:29.108Z] [INFO] Database connection established successfully
+[2025-04-19T12:00:29.111Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:29.112Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:29.117Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:29.117Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:29.129Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:29.129Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:29.134Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:54.553Z] [DEBUG] New database connection established
+[2025-04-19T12:00:54.554Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:54.555Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:54.555Z] [DEBUG] New database connection established
+[2025-04-19T12:00:54.556Z] [DEBUG] New database connection established
+[2025-04-19T12:00:54.557Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:54.556Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:54.561Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:54.561Z] [INFO] Database connection established successfully
+[2025-04-19T12:00:54.566Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:54.566Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:54.570Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:54.571Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:54.585Z] [DEBUG] Connection %d released
+[2025-04-19T12:00:54.586Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:00:54.588Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:17.819Z] [DEBUG] New database connection established
+[2025-04-19T12:01:17.821Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:17.822Z] [DEBUG] New database connection established
+[2025-04-19T12:01:17.822Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:17.824Z] [DEBUG] New database connection established
+[2025-04-19T12:01:17.824Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:17.825Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:17.834Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:17.834Z] [INFO] Database connection established successfully
+[2025-04-19T12:01:17.838Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:17.839Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:17.852Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:17.853Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:17.857Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:17.857Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:17.873Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:24.681Z] [DEBUG] New database connection established
+[2025-04-19T12:01:24.683Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:24.684Z] [DEBUG] New database connection established
+[2025-04-19T12:01:24.684Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:24.685Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:24.686Z] [INFO] Database connection established successfully
+[2025-04-19T12:01:24.686Z] [DEBUG] New database connection established
+[2025-04-19T12:01:24.686Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:24.686Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:24.697Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:24.698Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:24.702Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:24.702Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:24.711Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:24.711Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:01:24.723Z] [DEBUG] Connection %d released
+[2025-04-19T12:01:52.988Z] [WARN] Unauthorized access attempt to /user
+[2025-04-19T12:01:53.044Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:01:56.567Z] [WARN] Unauthorized access attempt to /
+[2025-04-19T12:02:02.931Z] [WARN] Unauthorized access attempt to /User/valuate
+[2025-04-19T12:02:02.969Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:05:43.690Z] [DEBUG] New database connection established
+[2025-04-19T12:05:43.691Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:05:43.691Z] [DEBUG] New database connection established
+[2025-04-19T12:05:43.692Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:05:43.693Z] [DEBUG] New database connection established
+[2025-04-19T12:05:43.693Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:05:43.694Z] [DEBUG] Connection %d released
+[2025-04-19T12:05:43.697Z] [INFO] Database connection established successfully
+[2025-04-19T12:05:43.697Z] [DEBUG] Connection %d released
+[2025-04-19T12:05:43.704Z] [DEBUG] Connection %d released
+[2025-04-19T12:05:43.705Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:05:43.710Z] [DEBUG] Connection %d released
+[2025-04-19T12:05:43.711Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:05:43.723Z] [DEBUG] Connection %d released
+[2025-04-19T12:05:43.724Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:05:43.727Z] [DEBUG] Connection %d released
+[2025-04-19T12:14:36.872Z] [DEBUG] New database connection established
+[2025-04-19T12:14:36.873Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:14:36.875Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:14:36.875Z] [DEBUG] New database connection established
+[2025-04-19T12:14:36.876Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:14:36.876Z] [DEBUG] New database connection established
+[2025-04-19T12:14:36.876Z] [DEBUG] Connection %d released
+[2025-04-19T12:14:36.880Z] [DEBUG] Connection %d released
+[2025-04-19T12:14:36.880Z] [INFO] Database connection established successfully
+[2025-04-19T12:14:36.886Z] [DEBUG] Connection %d released
+[2025-04-19T12:14:36.887Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:14:36.894Z] [DEBUG] Connection %d released
+[2025-04-19T12:14:36.894Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:14:36.907Z] [DEBUG] Connection %d released
+[2025-04-19T12:14:36.907Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:14:36.912Z] [DEBUG] Connection %d released
+[2025-04-19T12:14:57.341Z] [WARN] Unauthorized access attempt to /about
+[2025-04-19T12:14:57.397Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:16:51.454Z] [DEBUG] New database connection established
+[2025-04-19T12:16:51.454Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:16:51.456Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:16:51.455Z] [DEBUG] New database connection established
+[2025-04-19T12:16:51.456Z] [DEBUG] Connection %d released
+[2025-04-19T12:16:51.461Z] [DEBUG] New database connection established
+[2025-04-19T12:16:51.461Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:16:51.464Z] [DEBUG] Connection %d released
+[2025-04-19T12:16:51.464Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:16:51.465Z] [DEBUG] Connection %d released
+[2025-04-19T12:16:51.465Z] [INFO] Database connection established successfully
+[2025-04-19T12:16:51.474Z] [DEBUG] Connection %d released
+[2025-04-19T12:16:51.474Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:16:51.496Z] [DEBUG] Connection %d released
+[2025-04-19T12:16:51.499Z] [DEBUG] Connection %d released
+[2025-04-19T12:16:51.496Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:16:54.533Z] [WARN] Unauthorized access attempt to /about
+[2025-04-19T12:16:54.574Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:16:55.433Z] [WARN] Unauthorized access attempt to /about
+[2025-04-19T12:16:55.455Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:18:47.785Z] [DEBUG] New database connection established
+[2025-04-19T12:18:47.786Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:18:47.787Z] [DEBUG] New database connection established
+[2025-04-19T12:18:47.787Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:18:47.789Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:18:47.788Z] [DEBUG] New database connection established
+[2025-04-19T12:18:47.789Z] [DEBUG] Connection %d released
+[2025-04-19T12:18:47.792Z] [DEBUG] Connection %d released
+[2025-04-19T12:18:47.792Z] [INFO] Database connection established successfully
+[2025-04-19T12:18:47.798Z] [DEBUG] Connection %d released
+[2025-04-19T12:18:47.799Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:18:47.809Z] [DEBUG] Connection %d released
+[2025-04-19T12:18:47.810Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:18:47.812Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:18:47.812Z] [DEBUG] Connection %d released
+[2025-04-19T12:18:47.815Z] [DEBUG] Connection %d released
+[2025-04-19T12:20:48.866Z] [DEBUG] New database connection established
+[2025-04-19T12:20:48.867Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:20:48.868Z] [DEBUG] New database connection established
+[2025-04-19T12:20:48.868Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:20:48.869Z] [DEBUG] New database connection established
+[2025-04-19T12:20:48.870Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:20:48.870Z] [DEBUG] Connection %d released
+[2025-04-19T12:20:48.874Z] [DEBUG] Connection %d released
+[2025-04-19T12:20:48.874Z] [INFO] Database connection established successfully
+[2025-04-19T12:20:48.882Z] [DEBUG] Connection %d released
+[2025-04-19T12:20:48.883Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:20:48.887Z] [DEBUG] Connection %d released
+[2025-04-19T12:20:48.887Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:20:48.900Z] [DEBUG] Connection %d released
+[2025-04-19T12:20:48.900Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:20:48.902Z] [DEBUG] Connection %d released
+[2025-04-19T12:20:52.324Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:20:53.073Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:20:53.508Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:20:53.738Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:21:34.980Z] [DEBUG] New database connection established
+[2025-04-19T12:21:34.981Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:21:34.982Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:21:34.982Z] [DEBUG] New database connection established
+[2025-04-19T12:21:34.983Z] [DEBUG] New database connection established
+[2025-04-19T12:21:34.984Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:21:34.984Z] [DEBUG] Connection %d released
+[2025-04-19T12:21:34.987Z] [DEBUG] Connection %d released
+[2025-04-19T12:21:34.988Z] [INFO] Database connection established successfully
+[2025-04-19T12:21:34.993Z] [DEBUG] Connection %d released
+[2025-04-19T12:21:34.994Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:21:35.001Z] [DEBUG] Connection %d released
+[2025-04-19T12:21:35.001Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:21:35.013Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:21:35.013Z] [DEBUG] Connection %d released
+[2025-04-19T12:21:35.019Z] [DEBUG] Connection %d released
+[2025-04-19T12:21:56.370Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T12:21:58.822Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-19T12:22:00.258Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T12:22:03.104Z] [WARN] Unauthorized access attempt to /valuate
+[2025-04-19T12:22:03.153Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:22:11.050Z] [WARN] Unauthorized access attempt to /all
+[2025-04-19T12:22:11.100Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:22:22.017Z] [WARN] Unauthorized access attempt to /admin
+[2025-04-19T12:22:22.079Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-19T12:39:13.198Z] [DEBUG] New database connection established
+[2025-04-19T12:39:13.200Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:39:13.201Z] [DEBUG] New database connection established
+[2025-04-19T12:39:13.202Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:39:13.205Z] [DEBUG] New database connection established
+[2025-04-19T12:39:13.207Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:39:13.208Z] [DEBUG] Connection %d released
+[2025-04-19T12:39:13.219Z] [DEBUG] Connection %d released
+[2025-04-19T12:39:13.220Z] [INFO] Database connection established successfully
+[2025-04-19T12:39:13.226Z] [DEBUG] Connection %d released
+[2025-04-19T12:39:13.226Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:39:13.234Z] [DEBUG] Connection %d released
+[2025-04-19T12:39:13.235Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:39:13.245Z] [DEBUG] Connection %d released
+[2025-04-19T12:39:13.247Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:39:13.266Z] [DEBUG] Connection %d released
+[2025-04-19T12:48:14.268Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-19T12:48:15.715Z] [DEBUG] Connection %d acquired
+[2025-04-19T12:48:15.726Z] [DEBUG] Connection %d released
+[2025-04-19T12:48:15.769Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png

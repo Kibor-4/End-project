@@ -4,7 +4,7 @@ const { submitProperty } = require('../../controllers/UserController/addproperty
 const isAuthenticated = require('../../Middleware/authmiddleware');
 const upload = require('../../Public/Uploads/multer');
 
-router.get('/addproperty', isAuthenticated, (req, res) => {
+router.get('/User/addproperty', isAuthenticated, (req, res) => {
     res.render('addproperty');
 });
 

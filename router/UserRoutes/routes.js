@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 
-router.get('/about', (req, res) => {
+router.get('/User/about', (req, res) => {
     res.render('about', { title: 'About Us' });
 });
 

@@ -3,7 +3,7 @@ const { getChatHistory, getConversations } = require('../../controllers/UserCont
 
 const router = express.Router();
 
-router.get('/chat-history', getChatHistory);
-router.get('/conversations', getConversations);
+router.get('/User/chat-history', getChatHistory);
+router.get('/User/conversations', getConversations);
 
 module.exports = router;

@@ -4,7 +4,7 @@ const router = express.Router();
 const propertyController = require('../../controllers/UserController/propertyController');
 const isAuthenticated = require('../../Middleware/authmiddleware');
 
-router.get('/property/:id', propertyController.getPropertyDetails);
-router.post('/properties/:id/reviews', isAuthenticated, propertyController.addPropertyReview);
+router.get('/User/property/:id', propertyController.getPropertyDetails);
+router.post('/User/properties/:id/reviews', isAuthenticated, propertyController.addPropertyReview);
 
 module.exports = router;
