@@ -1,285 +1,175 @@
-const dbPromise = require('../../database/db');
-const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
-const saltRounds = parseInt(process.env.BCRYPT_SALT_ROUNDS) || 10; // Use environment variable
+const { validationResult } = require('express-validator');
+const passport = require('passport');
+const { v4: uuidv4 } = require('uuid');
+const db = require('../../database/db');
 
 const authController = {
-  login: async (req, res) => {
-    const requestId = uuidv4();
-    try {
-      const db = await dbPromise;
-      const { username, password, redirect } = req.body;
-
-      // Validate input
-      if (!username || !password) {
-        console.log(`[${requestId}] Missing credentials`);
-        return res.render('login', {
-          error: 'Username and PASSWORD are required',
-          redirect,
-          inputValues: { username }
+    // Login - GET
+    getLogin: (req, res) => {
+        res.render('login', {
+            title: 'Login',
+            message: req.flash('error'),
+            user: req.user || null
         });
-      }
+    },
 
-      const trimmedUsername = username.trim();
-      const trimmedEmail = trimmedUsername.toLowerCase();
-      const trimmedPhone = trimmedUsername.replace(/[\s-()+]/g, ''); // Normalize phone
-      console.log(`[${requestId}] Attempting login for:`, trimmedUsername);
+    // Login - POST
+    postLogin: passport.authenticate('local', {
+        successRedirect: 'dashboard',
+        failureRedirect: 'login',
+        failureFlash: true
+    }),
 
-      // Database query with specific columns
-      const [results] = await db.query(
-        'SELECT Id, Username, Password, role FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ? LIMIT 1',
-        [trimmedUsername, trimmedEmail, trimmedPhone]
-      );
-
-      console.log(`[${requestId}] Query returned ${results.length} rows`);
-
-      // Handle no user found
-      if (results.length === 0) {
-        console.log(`[${requestId}] No matching user found`);
-        return res.render('login', {
-          error: 'Invalid username or PASSWORD',
-          redirect,
-          inputValues: { username: trimmedUsername }
+    // Register - GET
+    getRegister: (req, res) => {
+        res.render('register', {
+            title: 'Register',
+            message: req.flash('error'),
+            user: req.user || null
         });
-      }
+    },
 
-      const user = results[0];
-
-      // Validate user object structure
-      if (!user?.Id || !user?.Password) {
-        console.error(`[${requestId}] Malformed user data:`, user);
-        return res.render('login', {
-          error: 'Account configuration error - contact support',
-          redirect
-        });
-      }
-
-      // PASSWORD verification
-      const isPasswordValid = await bcrypt.compare(password, user.Password);
-      if (!isPasswordValid) {
-        console.log(`[${requestId}] Invalid PASSWORD attempt`);
-        return res.render('login', {
-          error: 'Invalid username or PASSWORD',
-          redirect,
-          inputValues: { username: trimmedUsername }
-        });
-      }
-
-      // Session regeneration with promise
-      await new Promise((resolve, reject) => {
-        req.session.regenerate((err) => {
-          if (err) return reject(err);
-          resolve();
-        });
-      });
-
-      // Set session data
-      req.session.user = {
-        id: user.Id,
-        username: user.Username,
-        role: user.role
-      };
-
-      // Update user sessions table
-      await db.query(
-        `INSERT INTO user_sessions (session_id, user_id, expires)
-          VALUES (?, ?, UNIX_TIMESTAMP() + ?)
-          ON DUPLICATE KEY UPDATE
-            expires = VALUES(expires)`,
-        [
-          req.sessionID,
-          user.Id,
-          Math.floor(req.session.cookie.maxAge / 1000)
-        ]
-      );
-
-      // Update last login
-      await db.query(
-        'UPDATE Users SET last_login = NOW() WHERE Id = ?',
-        [user.Id]
-      );
-
-      // Enhanced redirect validation
-      const validRedirects = ['/user_dashboard', '/admin/settings', '/profile'];
-      let redirectPath = user.role === 'admin' ? '/admin/settings' : '/user_dashboard';
-      if (redirect && /^\/[a-zA-Z0-9\/_-]+$/.test(redirect) && !redirect.includes('..')) {
-        redirectPath = redirect;
-      }
-
-      // Final redirect with session save
-      req.session.save((err) => {
-        if (err) {
-          console.error(`[${requestId}] Session save failed:`, err);
-          return res.render('login', {
-            error: 'Login failed - please try again',
-            redirect
-          });
+    // Register - POST
+    postRegister: async (req, res) => {
+        const { username, email, password, confirmPassword } = req.body;
+        
+        if (password !== confirmPassword) {
+            req.flash('error', 'Passwords do not match.');
+            return res.redirect('signup');
         }
-        console.log(`[${requestId}] Successful login for user ${user.Id}`);
-        res.redirect(redirectPath);
-      });
-    } catch (error) {
-      console.error(`[${requestId}] Unexpected system error:`, error);
-      res.render('login', {
-        error: 'A system error occurred - please try again',
-        redirect: req.body.redirect
-      });
-    }
-  },
 
-  signup: async (req, res) => {
-    try {
-      const { redirect } = req.query; // Support redirect query param
-      res.render('signup', { inputValues: {}, redirect: redirect || '' });
-    } catch (err) {
-      console.error('Signup page render failed:', err);
-      res.status(500).render('error', {
-        message: 'Server error - please try again',
-        user: null
-      });
-    }
-  },
+        try {
+            const existingUser = await db.query('SELECT Id FROM Users WHERE email = ?', [email]);
+            if (existingUser.length > 0) {
+                req.flash('error', 'Email already in use.');
+                return res.redirect('signup');
+            }
 
-  register: async (req, res) => {
-    const requestId = uuidv4();
-    try {
-      const db = await dbPromise;
-      const { username, email, password, phone, dob } = req.body;
+            const hashedPassword = await bcrypt.hash(password, 10);
+            await db.query(
+                'INSERT INTO Users (username, email, password) VALUES (?, ?, ?)',
+                [username, email, hashedPassword]
+            );
 
-      // Enhanced validation
-      const errors = [];
-      if (!username || username.length < 3) errors.push('Username must be at least 3 characters');
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        errors.push('Valid email required');
-      }
-      if (!password || password.length < 8) errors.push('PASSWORD must be at least 8 characters');
-      if (!phone || !/^\+?[\d\s-]{10,15}$/.test(phone)) {
-        errors.push('Valid phone number required (e.g., +1234567890 or 123-456-7890)');
-      }
-      const dobDate = new Date(dob);
-      const today = new Date();
-      const minDate = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate());
-      if (!dob || isNaN(dobDate.getTime()) || dobDate > today || dobDate < minDate) {
-        errors.push('Valid date of birth required (must be between 120 years ago and today)');
-      }
+            req.flash('success', 'Registration successful! Please log in.');
+            res.redirect('login');
+        } catch (error) {
+            console.error('Registration error:', error);
+            req.flash('error', 'Registration failed. Please try again.');
+            res.redirect('/auth/register');
+        }
+    },
 
-      if (errors.length > 0) {
-        console.log(`[${requestId}] Validation errors:`, errors);
-        return res.render('signup', {
-          error: errors.join(', '),
-          inputValues: { username, email, phone, dob }
+    // Logout - GET
+    getLogout: (req, res, next) => {
+        req.logout((err) => {
+            if (err) {
+                console.error('Logout error:', err);
+                return next(err);
+            }
+            req.flash('success', 'Logged out successfully');
+            res.redirect('login');
         });
-      }
+    },
 
-      // Normalize inputs
-      const trimmedUsername = username.trim();
-      const trimmedEmail = email.toLowerCase().trim();
-      const normalizedPhone = phone.trim().replace(/[\s-()+]/g, '');
-
-      // Check for existing user
-      const [existingUsers] = await db.query(
-        'SELECT Id FROM Users WHERE Username = ? OR EMAIL = ? OR phone = ? LIMIT 1',
-        [trimmedUsername, trimmedEmail, normalizedPhone]
-      );
-
-      if (existingUsers.length > 0) {
-        console.log(`[${requestId}] Duplicate credentials found`);
-        return res.render('signup', {
-          error: 'Username, email or phone already in use',
-          inputValues: { username, email, phone, dob }
+    // Forgot Password - GET
+    getForgotPassword: (req, res) => {
+        res.render('forgot-password', {
+            title: 'Forgot Password',
+            message: req.flash('info'),
+            error: req.flash('error'),
+            user: req.user || null
         });
-      }
+    },
 
-      // Create new user with transaction
-      const connection = await db.getConnection();
-      try {
-        await connection.beginTransaction();
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
-        await connection.query(
-          `INSERT INTO Users (
-            Username, EMAIL, Password, phone, Date_of_Birth, role, created_at
-          ) VALUES (?, ?, ?, ?, ?, 'user', NOW())`,
-          [
-            trimmedUsername,
-            trimmedEmail,
-            hashedPassword,
-            normalizedPhone,
-            new Date(dob).toISOString().split('T')[0]
-          ]
-        );
-        await connection.commit();
-      } catch (error) {
-        await connection.rollback();
-        throw error;
-      } finally {
-        connection.release();
-      }
+    // Forgot Password - POST
+    postForgotPassword: async (req, res) => {
+        const { email } = req.body;
+        try {
+            const users = await db.query('SELECT Id, email FROM Users WHERE email = ?', [email]);
+            if (users.length === 0) {
+                req.flash('error', 'No user found with that email address.');
+                return res.redirect('/auth/forgot-password');
+            }
 
-      // Success
-      await new Promise((resolve, reject) => {
-        req.session.regenerate((err) => {
-          if (err) return reject(err);
-          resolve();
-        });
-      });
+            const resetToken = uuidv4();
+            await db.query(
+                'UPDATE Users SET resetToken = ?, resetTokenExpiry = DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE Id = ?',
+                [resetToken, users[0].Id]
+            );
 
-      req.session.success = 'Registration successful! Please login';
-      console.log(`[${requestId}] New user registered: ${trimmedUsername}`);
-      res.redirect('/login');
-    } catch (error) {
-      console.error(`[${requestId}] Registration failed:`, error);
-      res.render('signup', {
-        error: 'Registration failed - please try again',
-        inputValues: req.body
-      });
+            console.log('Password reset token generated for:', email, 'Token:', resetToken);
+            req.flash('info', 'A password reset link has been sent to your email address (check console).');
+            res.redirect('/auth/forgot-password');
+        } catch (error) {
+            console.error('Forgot password error:', error);
+            req.flash('error', 'An error occurred while processing your request.');
+            res.redirect('/auth/forgot-password');
+        }
+    },
+
+    // Reset Password - GET
+    getResetPassword: async (req, res) => {
+        const { token } = req.params;
+        try {
+            const users = await db.query(
+                'SELECT Id FROM Users WHERE resetToken = ? AND resetTokenExpiry > NOW()',
+                [token]
+            );
+            if (users.length === 0) {
+                req.flash('error', 'Invalid or expired reset token.');
+                return res.redirect('/auth/forgot-password');
+            }
+            res.render('reset-password', {
+                title: 'Reset Password',
+                token,
+                error: req.flash('error'),
+                user: req.user || null
+            });
+        } catch (error) {
+            console.error('Get reset password error:', error);
+            req.flash('error', 'An error occurred while verifying the reset token.');
+            res.redirect('/auth/forgot-password');
+        }
+    },
+
+    // Reset Password - POST
+    postResetPassword: async (req, res) => {
+        const { token, password, confirmPassword } = req.body;
+        if (password !== confirmPassword) {
+            return res.render('reset-password', {
+                title: 'Reset Password',
+                token,
+                error: 'Passwords do not match.',
+                user: req.user || null
+            });
+        }
+
+        try {
+            const users = await db.query(
+                'SELECT Id FROM Users WHERE resetToken = ? AND resetTokenExpiry > NOW()',
+                [token]
+            );
+            if (users.length === 0) {
+                req.flash('error', 'Invalid or expired reset token.');
+                return res.redirect('/auth/forgot-password');
+            }
+
+            const hashedPassword = await bcrypt.hash(password, 10);
+            await db.query(
+                'UPDATE Users SET Password = ?, resetToken = NULL, resetTokenExpiry = NULL WHERE Id = ?',
+                [hashedPassword, users[0].Id]
+            );
+
+            req.flash('success', 'Password reset successfully. You can now log in.');
+            res.redirect('login');
+        } catch (error) {
+            console.error('Reset password error:', error);
+            req.flash('error', 'An error occurred while resetting your password.');
+            res.redirect(`/auth/reset-password/${token}`);
+        }
     }
-  },
-
-  logout: async (req, res) => {
-    const requestId = uuidv4();
-    if (!req.session.user) {
-      return res.redirect('/login');
-    }
-
-    const userId = req.session.user.id;
-    const sessionId = req.sessionID;
-
-    await new Promise((resolve, reject) => {
-      req.session.destroy((err) => {
-        if (err) return reject(err);
-        resolve();
-      });
-    });
-
-    try {
-      const db = await dbPromise;
-      await db.query('DELETE FROM user_sessions WHERE session_id = ?', [sessionId]);
-    } catch (dbErr) {
-      console.error(`[${requestId}] Failed to delete session:`, dbErr);
-    }
-
-    res.clearCookie(req.session.cookie.name || 'connect.sid'); // Use configured cookie name
-    console.log(`[${requestId}] User ${userId} logged out`);
-    res.redirect('/login');
-  },
-
-  cleanupSessions: async () => {
-    const requestId = uuidv4();
-    try {
-      const db = await dbPromise;
-      const [expiredResult] = await db.query(
-        'DELETE FROM user_sessions WHERE expires < UNIX_TIMESTAMP()'
-      );
-      const [orphanedResult] = await db.query(
-        `DELETE s FROM user_sessions s
-          LEFT JOIN Users u ON s.user_id = u.Id
-          WHERE u.Id IS NULL`
-      );
-      console.log(`[${requestId}] Session cleanup completed: ${expiredResult.affectedRows} expired, ${orphanedResult.affectedRows} orphaned sessions removed`);
-    } catch (err) {
-      console.error(`[${requestId}] Cleanup failed:`, err);
-    }
-  }
 };
 
 module.exports = authController;

@@ -700,3 +700,485 @@
 [2025-04-19T14:55:52.276Z] [WARN] Unauthorized access attempt to /favicon.svg
 [2025-04-19T14:55:52.724Z] [WARN] Unauthorized access attempt to /favicon.svg
 [2025-04-19T15:04:23.659Z] [WARN] Unauthorized access attempt to /favicon.svg
+[2025-04-23T09:27:30.933Z] [DEBUG] New database connection established
+[2025-04-23T09:27:30.940Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:27:30.941Z] [DEBUG] New database connection established
+[2025-04-23T09:27:30.934Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:27:30.935Z] [DEBUG] Connection %d released
+[2025-04-23T09:27:30.940Z] [DEBUG] New database connection established
+[2025-04-23T09:27:30.941Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:27:30.942Z] [DEBUG] Connection %d released
+[2025-04-23T09:27:30.942Z] [INFO] Database connection established successfully
+[2025-04-23T09:27:30.974Z] [DEBUG] Connection %d released
+[2025-04-23T09:27:30.975Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:27:30.978Z] [DEBUG] Connection %d released
+[2025-04-23T09:27:30.978Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:27:30.981Z] [DEBUG] Connection %d released
+[2025-04-23T09:27:30.981Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:27:31.003Z] [DEBUG] Connection %d released
+[2025-04-23T09:28:02.577Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:28:05.159Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:28:05.164Z] [DEBUG] Connection %d released
+[2025-04-23T09:28:05.231Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:51:49.959Z] [DEBUG] New database connection established
+[2025-04-23T09:51:49.960Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:51:49.962Z] [DEBUG] New database connection established
+[2025-04-23T09:51:49.962Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:51:49.963Z] [DEBUG] Connection %d released
+[2025-04-23T09:51:49.968Z] [DEBUG] New database connection established
+[2025-04-23T09:51:49.968Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:51:49.972Z] [DEBUG] Connection %d released
+[2025-04-23T09:51:49.973Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:51:49.980Z] [DEBUG] Connection %d released
+[2025-04-23T09:51:49.982Z] [INFO] Database connection established successfully
+[2025-04-23T09:51:50.000Z] [DEBUG] Connection %d released
+[2025-04-23T09:51:50.000Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:51:50.006Z] [DEBUG] Connection %d released
+[2025-04-23T09:51:50.006Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:51:50.021Z] [DEBUG] Connection %d released
+[2025-04-23T09:51:56.407Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-23T09:52:49.115Z] [DEBUG] New database connection established
+[2025-04-23T09:52:49.116Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:52:49.117Z] [DEBUG] New database connection established
+[2025-04-23T09:52:49.117Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:52:49.117Z] [DEBUG] Connection %d released
+[2025-04-23T09:52:49.122Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:52:49.122Z] [DEBUG] New database connection established
+[2025-04-23T09:52:49.125Z] [DEBUG] Connection %d released
+[2025-04-23T09:52:49.125Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:52:49.129Z] [DEBUG] Connection %d released
+[2025-04-23T09:52:49.130Z] [INFO] Database connection established successfully
+[2025-04-23T09:52:49.131Z] [DEBUG] Connection %d released
+[2025-04-23T09:52:49.131Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:52:49.135Z] [DEBUG] Connection %d released
+[2025-04-23T09:52:49.136Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:52:49.147Z] [DEBUG] Connection %d released
+[2025-04-23T09:54:54.550Z] [DEBUG] New database connection established
+[2025-04-23T09:54:54.551Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:54:54.552Z] [DEBUG] New database connection established
+[2025-04-23T09:54:54.552Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:54:54.553Z] [DEBUG] New database connection established
+[2025-04-23T09:54:54.553Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:54:54.553Z] [DEBUG] Connection %d released
+[2025-04-23T09:54:54.558Z] [DEBUG] Connection %d released
+[2025-04-23T09:54:54.558Z] [INFO] Database connection established successfully
+[2025-04-23T09:54:54.563Z] [DEBUG] Connection %d released
+[2025-04-23T09:54:54.563Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:54:54.568Z] [DEBUG] Connection %d released
+[2025-04-23T09:54:54.568Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:54:54.579Z] [DEBUG] Connection %d released
+[2025-04-23T09:54:54.579Z] [DEBUG] Connection %d acquired
+[2025-04-23T09:54:54.585Z] [DEBUG] Connection %d released
+[2025-04-23T09:55:00.467Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:55:01.831Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:55:06.429Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:55:06.995Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:55:07.179Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:55:07.346Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:55:07.536Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:57:12.385Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:57:13.522Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:57:15.339Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:57:17.073Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:57:17.571Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:57:22.756Z] [WARN] Unauthorized access attempt to /admin
+[2025-04-23T09:57:22.834Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-23T09:57:28.855Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T09:57:34.293Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T10:01:21.963Z] [WARN] Unauthorized access attempt to /signup
+[2025-04-23T10:01:22.013Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-23T10:01:24.271Z] [WARN] Unauthorized access attempt to /home/destro/End/Public/images/home_18031529.png
+[2025-04-23T10:01:25.893Z] [WARN] Unauthorized access attempt to /signup
+[2025-04-23T10:01:25.942Z] [WARN] Unauthorized access attempt to /favicon.ico
+[2025-04-23T10:09:49.776Z] [DEBUG] New database connection established
+[2025-04-23T10:09:49.777Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:09:49.778Z] [DEBUG] New database connection established
+[2025-04-23T10:09:49.778Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:09:49.779Z] [DEBUG] Connection %d released
+[2025-04-23T10:09:49.783Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:09:49.783Z] [DEBUG] New database connection established
+[2025-04-23T10:09:49.786Z] [DEBUG] Connection %d released
+[2025-04-23T10:09:49.786Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:09:49.791Z] [DEBUG] Connection %d released
+[2025-04-23T10:09:49.791Z] [INFO] Database connection established successfully
+[2025-04-23T10:09:49.794Z] [DEBUG] Connection %d released
+[2025-04-23T10:09:49.794Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:09:49.799Z] [DEBUG] Connection %d released
+[2025-04-23T10:09:49.799Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:09:49.810Z] [DEBUG] Connection %d released
+[2025-04-23T10:11:15.887Z] [DEBUG] New database connection established
+[2025-04-23T10:11:15.889Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:11:15.890Z] [DEBUG] New database connection established
+[2025-04-23T10:11:15.890Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:11:15.891Z] [DEBUG] New database connection established
+[2025-04-23T10:11:15.891Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:11:15.892Z] [DEBUG] Connection %d released
+[2025-04-23T10:11:15.896Z] [DEBUG] Connection %d released
+[2025-04-23T10:11:15.896Z] [INFO] Database connection established successfully
+[2025-04-23T10:11:15.902Z] [DEBUG] Connection %d released
+[2025-04-23T10:11:15.903Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:11:15.907Z] [DEBUG] Connection %d released
+[2025-04-23T10:11:15.907Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:11:15.916Z] [DEBUG] Connection %d released
+[2025-04-23T10:11:15.917Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:11:15.920Z] [DEBUG] Connection %d released
+[2025-04-23T10:15:17.395Z] [DEBUG] New database connection established
+[2025-04-23T10:15:17.396Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:15:17.397Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:15:17.397Z] [DEBUG] New database connection established
+[2025-04-23T10:15:17.398Z] [DEBUG] Connection %d released
+[2025-04-23T10:15:17.402Z] [DEBUG] New database connection established
+[2025-04-23T10:15:17.402Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:15:17.406Z] [DEBUG] Connection %d released
+[2025-04-23T10:15:17.406Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:15:17.410Z] [DEBUG] Connection %d released
+[2025-04-23T10:15:17.410Z] [INFO] Database connection established successfully
+[2025-04-23T10:15:17.411Z] [DEBUG] Connection %d released
+[2025-04-23T10:15:17.411Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:15:17.418Z] [DEBUG] Connection %d acquired
+[2025-04-23T10:15:17.418Z] [DEBUG] Connection %d released
+[2025-04-23T10:15:17.428Z] [DEBUG] Connection %d released
+[2025-04-23T11:29:24.859Z] [DEBUG] New database connection established
+[2025-04-23T11:29:24.860Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:29:24.862Z] [DEBUG] New database connection established
+[2025-04-23T11:29:24.862Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:29:24.863Z] [DEBUG] Connection %d released
+[2025-04-23T11:29:24.882Z] [DEBUG] New database connection established
+[2025-04-23T11:29:24.882Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:29:24.887Z] [DEBUG] Connection %d released
+[2025-04-23T11:29:24.887Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:29:24.888Z] [DEBUG] Connection %d released
+[2025-04-23T11:29:24.888Z] [INFO] Database connection established successfully
+[2025-04-23T11:29:24.894Z] [DEBUG] Connection %d released
+[2025-04-23T11:29:24.894Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:29:24.912Z] [DEBUG] Connection %d released
+[2025-04-23T11:29:24.912Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:29:24.917Z] [DEBUG] Connection %d released
+[2025-04-23T11:41:30.432Z] [DEBUG] New database connection established
+[2025-04-23T11:41:30.433Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:41:30.434Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:41:30.434Z] [DEBUG] New database connection established
+[2025-04-23T11:41:30.436Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:41:30.435Z] [DEBUG] New database connection established
+[2025-04-23T11:41:30.436Z] [DEBUG] Connection %d released
+[2025-04-23T11:41:30.441Z] [DEBUG] Connection %d released
+[2025-04-23T11:41:30.441Z] [INFO] Database connection established successfully
+[2025-04-23T11:41:30.447Z] [DEBUG] Connection %d released
+[2025-04-23T11:41:30.447Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:41:30.451Z] [DEBUG] Connection %d released
+[2025-04-23T11:41:30.451Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:41:30.462Z] [DEBUG] Connection %d released
+[2025-04-23T11:41:30.463Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:41:30.466Z] [DEBUG] Connection %d released
+[2025-04-23T11:42:03.886Z] [DEBUG] New database connection established
+[2025-04-23T11:42:03.886Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:42:03.887Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:42:03.887Z] [DEBUG] New database connection established
+[2025-04-23T11:42:03.889Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:42:03.889Z] [DEBUG] New database connection established
+[2025-04-23T11:42:03.890Z] [DEBUG] Connection %d released
+[2025-04-23T11:42:03.896Z] [DEBUG] Connection %d released
+[2025-04-23T11:42:03.896Z] [INFO] Database connection established successfully
+[2025-04-23T11:42:03.898Z] [DEBUG] Connection %d released
+[2025-04-23T11:42:03.898Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:42:03.902Z] [DEBUG] Connection %d released
+[2025-04-23T11:42:03.903Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:42:03.914Z] [DEBUG] Connection %d released
+[2025-04-23T11:42:03.914Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:42:03.917Z] [DEBUG] Connection %d released
+[2025-04-23T11:48:42.036Z] [DEBUG] New database connection established
+[2025-04-23T11:48:42.037Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:48:42.042Z] [DEBUG] New database connection established
+[2025-04-23T11:48:42.042Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:48:42.043Z] [DEBUG] New database connection established
+[2025-04-23T11:48:42.043Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:48:42.044Z] [DEBUG] Connection %d released
+[2025-04-23T11:48:42.048Z] [DEBUG] Connection %d released
+[2025-04-23T11:48:42.048Z] [INFO] Database connection established successfully
+[2025-04-23T11:48:42.056Z] [DEBUG] Connection %d released
+[2025-04-23T11:48:42.057Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:48:42.067Z] [DEBUG] Connection %d released
+[2025-04-23T11:48:42.067Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:48:42.070Z] [DEBUG] Connection %d released
+[2025-04-23T11:48:42.071Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:48:42.073Z] [DEBUG] Connection %d released
+[2025-04-23T11:51:20.163Z] [DEBUG] New database connection established
+[2025-04-23T11:51:20.164Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:51:20.165Z] [DEBUG] New database connection established
+[2025-04-23T11:51:20.165Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:51:20.167Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:51:20.167Z] [DEBUG] New database connection established
+[2025-04-23T11:51:20.167Z] [DEBUG] Connection %d released
+[2025-04-23T11:51:20.171Z] [DEBUG] Connection %d released
+[2025-04-23T11:51:20.171Z] [INFO] Database connection established successfully
+[2025-04-23T11:51:20.176Z] [DEBUG] Connection %d released
+[2025-04-23T11:51:20.177Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:51:20.180Z] [DEBUG] Connection %d released
+[2025-04-23T11:51:20.180Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:51:20.191Z] [DEBUG] Connection %d released
+[2025-04-23T11:51:20.191Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:51:20.194Z] [DEBUG] Connection %d released
+[2025-04-23T11:53:57.173Z] [DEBUG] New database connection established
+[2025-04-23T11:53:57.174Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:53:57.175Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:53:57.175Z] [DEBUG] New database connection established
+[2025-04-23T11:53:57.176Z] [DEBUG] New database connection established
+[2025-04-23T11:53:57.176Z] [DEBUG] Connection %d released
+[2025-04-23T11:53:57.176Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:53:57.180Z] [DEBUG] Connection %d released
+[2025-04-23T11:53:57.180Z] [INFO] Database connection established successfully
+[2025-04-23T11:53:57.183Z] [DEBUG] Connection %d released
+[2025-04-23T11:53:57.183Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:53:57.190Z] [DEBUG] Connection %d released
+[2025-04-23T11:53:57.190Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:53:57.200Z] [DEBUG] Connection %d released
+[2025-04-23T11:53:57.201Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:53:57.208Z] [DEBUG] Connection %d released
+[2025-04-23T11:55:07.059Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:55:07.062Z] [DEBUG] Connection %d released
+[2025-04-23T11:55:07.151Z] [DEBUG] Connection %d acquired
+[2025-04-23T11:55:07.153Z] [DEBUG] Connection %d released
+[2025-04-23T12:01:59.662Z] [DEBUG] New database connection established
+[2025-04-23T12:01:59.663Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:01:59.664Z] [DEBUG] New database connection established
+[2025-04-23T12:01:59.665Z] [DEBUG] New database connection established
+[2025-04-23T12:01:59.665Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:01:59.664Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:01:59.667Z] [DEBUG] Connection %d released
+[2025-04-23T12:01:59.676Z] [INFO] Database connection established successfully
+[2025-04-23T12:01:59.676Z] [DEBUG] Connection %d released
+[2025-04-23T12:01:59.678Z] [DEBUG] Connection %d released
+[2025-04-23T12:01:59.679Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:01:59.685Z] [DEBUG] Connection %d released
+[2025-04-23T12:01:59.685Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:01:59.694Z] [DEBUG] Connection %d released
+[2025-04-23T12:01:59.694Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:01:59.707Z] [DEBUG] Connection %d released
+[2025-04-23T12:02:20.668Z] [DEBUG] New database connection established
+[2025-04-23T12:02:20.669Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:02:20.670Z] [DEBUG] New database connection established
+[2025-04-23T12:02:20.670Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:02:20.672Z] [INFO] Database connection established successfully
+[2025-04-23T12:02:20.672Z] [DEBUG] Connection %d released
+[2025-04-23T12:02:20.673Z] [DEBUG] New database connection established
+[2025-04-23T12:02:20.673Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:02:20.673Z] [DEBUG] Connection %d released
+[2025-04-23T12:02:20.684Z] [DEBUG] Connection %d released
+[2025-04-23T12:02:20.684Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:02:20.688Z] [DEBUG] Connection %d released
+[2025-04-23T12:02:20.688Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:02:20.696Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:02:20.695Z] [DEBUG] Connection %d released
+[2025-04-23T12:02:20.698Z] [DEBUG] Connection %d released
+[2025-04-23T12:03:13.127Z] [DEBUG] New database connection established
+[2025-04-23T12:03:13.128Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:03:13.129Z] [DEBUG] New database connection established
+[2025-04-23T12:03:13.129Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:03:13.130Z] [DEBUG] New database connection established
+[2025-04-23T12:03:13.131Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:03:13.131Z] [DEBUG] Connection %d released
+[2025-04-23T12:03:13.139Z] [INFO] Database connection established successfully
+[2025-04-23T12:03:13.139Z] [DEBUG] Connection %d released
+[2025-04-23T12:03:13.141Z] [DEBUG] Connection %d released
+[2025-04-23T12:03:13.142Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:03:13.148Z] [DEBUG] Connection %d released
+[2025-04-23T12:03:13.148Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:03:13.154Z] [DEBUG] Connection %d released
+[2025-04-23T12:03:13.154Z] [DEBUG] Connection %d acquired
+[2025-04-23T12:03:13.165Z] [DEBUG] Connection %d released
+[2025-04-23T13:26:47.166Z] [DEBUG] New database connection established
+[2025-04-23T13:26:47.167Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:26:47.169Z] [DEBUG] New database connection established
+[2025-04-23T13:26:47.169Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:26:47.173Z] [DEBUG] New database connection established
+[2025-04-23T13:26:47.174Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:26:47.174Z] [DEBUG] Connection %d released
+[2025-04-23T13:26:47.185Z] [DEBUG] Connection %d released
+[2025-04-23T13:26:47.186Z] [INFO] Database connection established successfully
+[2025-04-23T13:26:47.189Z] [DEBUG] Connection %d released
+[2025-04-23T13:26:47.189Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:26:47.200Z] [DEBUG] Connection %d released
+[2025-04-23T13:26:47.200Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:26:47.204Z] [DEBUG] Connection %d released
+[2025-04-23T13:26:47.205Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:26:47.224Z] [DEBUG] Connection %d released
+[2025-04-23T13:26:52.640Z] [WARN] Unauthorized access attempt to /user/about
+[2025-04-23T13:27:21.687Z] [WARN] Unauthorized access attempt to /user/signup
+[2025-04-23T13:30:32.007Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:30:32.010Z] [DEBUG] Connection %d released
+[2025-04-23T13:30:32.100Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:30:32.101Z] [DEBUG] Connection %d released
+[2025-04-23T13:41:42.164Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:41:42.166Z] [DEBUG] Connection %d released
+[2025-04-23T13:41:42.251Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:41:42.257Z] [DEBUG] Connection %d released
+[2025-04-23T13:43:35.231Z] [DEBUG] New database connection established
+[2025-04-23T13:43:35.233Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:43:35.236Z] [DEBUG] New database connection established
+[2025-04-23T13:43:35.236Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:43:35.240Z] [DEBUG] New database connection established
+[2025-04-23T13:43:35.240Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:43:35.240Z] [DEBUG] Connection %d released
+[2025-04-23T13:43:35.244Z] [DEBUG] Connection %d released
+[2025-04-23T13:43:35.244Z] [INFO] Database connection established successfully
+[2025-04-23T13:43:35.247Z] [DEBUG] Connection %d released
+[2025-04-23T13:43:35.247Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:43:35.277Z] [DEBUG] Connection %d released
+[2025-04-23T13:43:35.280Z] [DEBUG] Connection %d released
+[2025-04-23T13:43:35.286Z] [DEBUG] Connection %d released
+[2025-04-23T13:43:35.277Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:43:35.281Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:57:20.752Z] [DEBUG] New database connection established
+[2025-04-23T13:57:20.753Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:57:20.753Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:57:20.753Z] [DEBUG] New database connection established
+[2025-04-23T13:57:20.755Z] [DEBUG] New database connection established
+[2025-04-23T13:57:20.755Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:57:20.756Z] [DEBUG] Connection %d released
+[2025-04-23T13:57:20.761Z] [DEBUG] Connection %d released
+[2025-04-23T13:57:20.761Z] [INFO] Database connection established successfully
+[2025-04-23T13:57:20.766Z] [DEBUG] Connection %d released
+[2025-04-23T13:57:20.766Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:57:20.771Z] [DEBUG] Connection %d released
+[2025-04-23T13:57:20.772Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:57:20.775Z] [DEBUG] Connection %d released
+[2025-04-23T13:57:20.776Z] [DEBUG] Connection %d acquired
+[2025-04-23T13:57:20.794Z] [DEBUG] Connection %d released
+[2025-04-23T14:12:27.037Z] [INFO] Database connection established successfully
+[2025-04-23T14:12:27.038Z] [INFO] Database pool initialized
+[2025-04-23T14:12:27.038Z] [DEBUG] Connection 116 acquired
+[2025-04-23T14:12:27.038Z] [DEBUG] Connection 116 released
+[2025-04-23T14:12:27.042Z] [DEBUG] Connection 116 acquired
+[2025-04-23T14:12:27.052Z] [DEBUG] Connection 116 released
+[2025-04-23T14:12:27.052Z] [DEBUG] Connection 116 acquired
+[2025-04-23T14:12:27.063Z] [DEBUG] Connection 116 released
+[2025-04-23T14:12:27.063Z] [DEBUG] Connection 116 acquired
+[2025-04-23T14:12:27.067Z] [DEBUG] Connection 116 released
+[2025-04-23T14:12:27.068Z] [DEBUG] Connection 116 acquired
+[2025-04-23T14:12:27.071Z] [DEBUG] Connection 116 released
+[2025-04-23T14:12:46.157Z] [INFO] Database pool initialized
+[2025-04-23T14:12:46.156Z] [INFO] Database connection established successfully
+[2025-04-23T14:12:46.157Z] [DEBUG] Connection 118 acquired
+[2025-04-23T14:12:46.157Z] [DEBUG] Connection 118 released
+[2025-04-23T14:12:46.160Z] [DEBUG] Connection 118 acquired
+[2025-04-23T14:12:46.169Z] [DEBUG] Connection 118 released
+[2025-04-23T14:12:46.170Z] [DEBUG] Connection 118 acquired
+[2025-04-23T14:12:46.179Z] [DEBUG] Connection 118 released
+[2025-04-23T14:12:46.179Z] [DEBUG] Connection 118 acquired
+[2025-04-23T14:12:46.183Z] [DEBUG] Connection 118 released
+[2025-04-23T14:12:46.184Z] [DEBUG] Connection 118 acquired
+[2025-04-23T14:12:46.187Z] [DEBUG] Connection 118 released
+[2025-04-23T14:14:21.175Z] [WARN] Unauthorized access attempt to /admin
+[2025-04-23T14:17:15.174Z] [INFO] Database connection established successfully
+[2025-04-23T14:17:15.175Z] [INFO] Database pool initialized
+[2025-04-23T14:17:15.175Z] [DEBUG] Connection 122 acquired
+[2025-04-23T14:17:15.175Z] [DEBUG] Connection 122 released
+[2025-04-23T14:17:15.179Z] [DEBUG] Connection 122 acquired
+[2025-04-23T14:17:15.191Z] [DEBUG] Connection 122 released
+[2025-04-23T14:17:15.192Z] [DEBUG] Connection 122 acquired
+[2025-04-23T14:17:15.194Z] [DEBUG] Connection 122 released
+[2025-04-23T14:17:15.194Z] [DEBUG] Connection 122 acquired
+[2025-04-23T14:17:15.197Z] [DEBUG] Connection 122 released
+[2025-04-23T14:17:15.197Z] [DEBUG] Connection 122 acquired
+[2025-04-23T14:17:15.199Z] [DEBUG] Connection 122 released
+[2025-04-23T14:19:48.671Z] [WARN] Unauthorized access attempt to /admin
+[2025-04-23T14:23:27.532Z] [INFO] Database connection established successfully
+[2025-04-23T14:23:27.533Z] [INFO] Database pool initialized
+[2025-04-23T14:23:27.533Z] [DEBUG] Connection 126 acquired
+[2025-04-23T14:23:27.534Z] [DEBUG] Connection 126 released
+[2025-04-23T14:23:27.538Z] [DEBUG] Connection 126 acquired
+[2025-04-23T14:23:27.556Z] [DEBUG] Connection 126 released
+[2025-04-23T14:23:27.556Z] [DEBUG] Connection 126 acquired
+[2025-04-23T14:23:27.559Z] [DEBUG] Connection 126 released
+[2025-04-23T14:23:27.559Z] [DEBUG] Connection 126 acquired
+[2025-04-23T14:23:27.563Z] [DEBUG] Connection 126 released
+[2025-04-23T14:23:27.564Z] [DEBUG] Connection 126 acquired
+[2025-04-23T14:23:27.568Z] [DEBUG] Connection 126 released
+[2025-04-23T15:04:02.076Z] [INFO] Database connection established successfully
+[2025-04-23T15:04:02.077Z] [INFO] Database pool initialized
+[2025-04-23T15:04:02.077Z] [DEBUG] Connection 129 acquired
+[2025-04-23T15:04:02.077Z] [DEBUG] Connection 129 released
+[2025-04-23T15:04:02.081Z] [DEBUG] Connection 129 acquired
+[2025-04-23T15:04:02.089Z] [DEBUG] Connection 129 released
+[2025-04-23T15:04:02.090Z] [DEBUG] Connection 129 acquired
+[2025-04-23T15:04:02.105Z] [DEBUG] Connection 129 released
+[2025-04-23T15:04:02.105Z] [DEBUG] Connection 129 acquired
+[2025-04-23T15:04:02.108Z] [DEBUG] Connection 129 released
+[2025-04-23T15:04:02.108Z] [DEBUG] Connection 129 acquired
+[2025-04-23T15:04:02.112Z] [DEBUG] Connection 129 released
+[2025-04-23T15:05:23.250Z] [INFO] Database connection established successfully
+[2025-04-23T15:05:23.252Z] [INFO] Database pool initialized
+[2025-04-23T15:05:23.253Z] [DEBUG] Connection 132 released
+[2025-04-23T15:05:23.252Z] [DEBUG] Connection 132 acquired
+[2025-04-23T15:05:23.258Z] [DEBUG] Connection 132 acquired
+[2025-04-23T15:05:23.266Z] [DEBUG] Connection 132 released
+[2025-04-23T15:05:23.267Z] [DEBUG] Connection 132 acquired
+[2025-04-23T15:05:23.282Z] [DEBUG] Connection 132 released
+[2025-04-23T15:05:23.282Z] [DEBUG] Connection 132 acquired
+[2025-04-23T15:05:23.284Z] [DEBUG] Connection 132 released
+[2025-04-23T15:05:23.285Z] [DEBUG] Connection 132 acquired
+[2025-04-23T15:05:23.290Z] [DEBUG] Connection 132 released
+[2025-04-23T15:07:02.971Z] [INFO] Database connection established successfully
+[2025-04-23T15:07:02.972Z] [INFO] Database pool initialized
+[2025-04-23T15:07:02.973Z] [DEBUG] Connection 135 acquired
+[2025-04-23T15:07:02.973Z] [DEBUG] Connection 135 released
+[2025-04-23T15:07:02.981Z] [DEBUG] Connection 135 acquired
+[2025-04-23T15:07:02.993Z] [DEBUG] Connection 135 released
+[2025-04-23T15:07:02.994Z] [DEBUG] Connection 135 acquired
+[2025-04-23T15:07:03.003Z] [DEBUG] Connection 135 released
+[2025-04-23T15:07:03.003Z] [DEBUG] Connection 135 acquired
+[2025-04-23T15:07:03.028Z] [DEBUG] Connection 135 released
+[2025-04-23T15:07:03.029Z] [DEBUG] Connection 135 acquired
+[2025-04-23T15:07:03.036Z] [DEBUG] Connection 135 released
+[2025-04-23T15:07:12.394Z] [INFO] Database connection established successfully
+[2025-04-23T15:07:12.395Z] [INFO] Database pool initialized
+[2025-04-23T15:07:12.395Z] [DEBUG] Connection 137 acquired
+[2025-04-23T15:07:12.395Z] [DEBUG] Connection 137 released
+[2025-04-23T15:07:12.398Z] [DEBUG] Connection 137 acquired
+[2025-04-23T15:07:12.439Z] [DEBUG] Connection 137 released
+[2025-04-23T15:07:12.439Z] [DEBUG] Connection 137 acquired
+[2025-04-23T15:07:12.442Z] [DEBUG] Connection 137 released
+[2025-04-23T15:07:12.442Z] [DEBUG] Connection 137 acquired
+[2025-04-23T15:07:12.444Z] [DEBUG] Connection 137 released
+[2025-04-23T15:07:12.445Z] [DEBUG] Connection 137 acquired
+[2025-04-23T15:07:12.447Z] [DEBUG] Connection 137 released
+[2025-04-23T15:07:49.592Z] [INFO] Database connection established successfully
+[2025-04-23T15:07:49.593Z] [INFO] Database pool initialized
+[2025-04-23T15:07:49.594Z] [DEBUG] Connection 139 released
+[2025-04-23T15:07:49.593Z] [DEBUG] Connection 139 acquired
+[2025-04-23T15:07:49.597Z] [DEBUG] Connection 139 acquired
+[2025-04-23T15:07:49.616Z] [DEBUG] Connection 139 released
+[2025-04-23T15:07:49.616Z] [DEBUG] Connection 139 acquired
+[2025-04-23T15:07:49.623Z] [DEBUG] Connection 139 released
+[2025-04-23T15:07:49.624Z] [DEBUG] Connection 139 acquired
+[2025-04-23T15:07:49.646Z] [DEBUG] Connection 139 released
+[2025-04-23T15:07:49.686Z] [DEBUG] Connection 139 acquired
+[2025-04-23T15:07:49.691Z] [DEBUG] Connection 139 released
+[2025-04-23T15:08:16.503Z] [INFO] Database connection established successfully
+[2025-04-23T15:08:16.504Z] [INFO] Database pool initialized
+[2025-04-23T15:08:16.505Z] [DEBUG] Connection 141 released
+[2025-04-23T15:08:16.505Z] [DEBUG] Connection 141 acquired
+[2025-04-23T15:08:16.508Z] [DEBUG] Connection 141 acquired
+[2025-04-23T15:08:16.516Z] [DEBUG] Connection 141 released
+[2025-04-23T15:08:16.516Z] [DEBUG] Connection 141 acquired
+[2025-04-23T15:08:16.528Z] [DEBUG] Connection 141 released
+[2025-04-23T15:08:16.530Z] [DEBUG] Connection 141 acquired
+[2025-04-23T15:08:16.536Z] [DEBUG] Connection 141 released
+[2025-04-23T15:08:16.537Z] [DEBUG] Connection 141 acquired
+[2025-04-23T15:08:16.540Z] [DEBUG] Connection 141 released
+[2025-04-23T15:34:12.734Z] [INFO] Database connection established successfully
+[2025-04-23T15:34:12.735Z] [INFO] Database pool initialized
+[2025-04-23T15:34:12.735Z] [DEBUG] Connection 144 acquired
+[2025-04-23T15:34:12.735Z] [DEBUG] Connection 144 released
+[2025-04-23T15:34:12.740Z] [DEBUG] Connection 144 acquired
+[2025-04-23T15:40:46.979Z] [INFO] Database connection established successfully
+[2025-04-23T15:40:46.980Z] [INFO] Database pool initialized
+[2025-04-23T15:40:46.980Z] [DEBUG] Connection 145 acquired
+[2025-04-23T15:40:46.984Z] [DEBUG] Connection 145 released
+[2025-04-23T15:40:46.984Z] [DEBUG] Connection 145 acquired
+[2025-04-23T15:40:46.996Z] [DEBUG] Connection 145 released
+[2025-04-23T15:41:46.587Z] [INFO] Database pool initialized
+[2025-04-23T15:41:46.586Z] [INFO] Database connection established successfully
+[2025-04-23T15:41:46.587Z] [DEBUG] Connection 147 acquired
+[2025-04-23T15:41:46.587Z] [DEBUG] Connection 147 released
+[2025-04-23T15:41:46.591Z] [DEBUG] Connection 147 acquired
