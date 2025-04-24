@@ -19,19 +19,19 @@ const signupRouter = require('../../router/UserRoutes/signup'); // Fixed import
 
 // Public routes
 router.use('/', authRoutes);
-router.use('/auth', signupRouter); // Fixed usage - mounted under /auth
+router.use('/', signupRouter); // Fixed usage - mounted under /auth
 
 // Public home, about, and valuate routes
 router.get('/', (req, res) => {
-  res.render('home');
+    res.render('index');
 });
 
 router.get('/about', (req, res) => {
-  res.render('about');
+    res.render('about');
 });
 
 router.get('/valuate', (req, res) => {
-  res.render('valuate');
+    res.render('valuate');
 });
 
 // Authentication middleware

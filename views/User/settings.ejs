@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Settings</title>
-  <link rel="stylesheet" href="../../Public/stylesheet/adminsettings.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings</title>
+    <link rel="stylesheet" href="../../Public/stylesheet/adminsettings.css">
 </head>
 <body>
-  <%- include('../shared/header', { user: user }) %>
-  <%- include('../shared/sidebar') %>
+    <%- include('../shared/header', { user: user }) %>
+    <%- include('../shared/sidebar') %>
 
-  <div class="main-content">
-    <h1>Settings</h1>
+    <div class="main-content">
+        <h1>Settings</h1>
 
-    <!-- Preferences Form -->
-    <form action="/user/settings" method="POST" class="form-container">
-      <h2>Set Preferences</h2>
+        <form action="/user/settings" method="POST" class="form-container">
+            <h2>Set Preferences</h2>
 
-      <!-- Notification Preferences -->
-      <div class="form-group">
-        <label for="notifications">Enable Notifications:</label>
-        <input type="checkbox" id="notifications" name="notifications" <%= user.preferences.notifications ? 'checked' : '' %>>
-      </div>
+            <div class="form-group">
+                <label for="notifications">Enable Notifications:</label>
+                <input type="checkbox" id="notifications" name="notifications" <%= user.preferences.notifications ? 'checked' : '' %>>
+            </div>
 
-      <!-- Preferred Property Types -->
-      <div class="form-group">
-        <label for="propertyTypes">Preferred Property Types:</label>
-        <select id="propertyTypes" name="propertyTypes" multiple>
-          <option value="apartment" <%= user.preferences.propertyTypes.includes('apartment') ? 'selected' : '' %>>Apartment</option>
-          <option value="house" <%= user.preferences.propertyTypes.includes('house') ? 'selected' : '' %>>House</option>
-          <option value="villa" <%= user.preferences.propertyTypes.includes('villa') ? 'selected' : '' %>>Villa</option>
-          <option value="commercial" <%= user.preferences.propertyTypes.includes('commercial') ? 'selected' : '' %>>Commercial</option>
-        </select>
-      </div>
+            <div class="form-group">
+                <label for="propertyTypes">Preferred Property Types:</label>
+                <select id="propertyTypes" name="propertyTypes" multiple>
+                    <option value="apartment" <%= user.preferences.propertyTypes.includes('apartment') ? 'selected' : '' %>>Apartment</option>
+                    <option value="house" <%= user.preferences.propertyTypes.includes('house') ? 'selected' : '' %>>House</option>
+                    <option value="villa" <%= user.preferences.propertyTypes.includes('villa') ? 'selected' : '' %>>Villa</option>
+                    <option value="commercial" <%= user.preferences.propertyTypes.includes('commercial') ? 'selected' : '' %>>Commercial</option>
+                </select>
+            </div>
 
-      <!-- Preferred Locations -->
-      <div class="form-group">
-        <label for="locations">Preferred Locations:</label>
-        <input type="text" id="locations" name="locations" value="<%= user.preferences.locations.join(', ') %>">
-      </div>
+            <div class="form-group">
+                <label for="locations">Preferred Locations:</label>
+                <input type="text" id="locations" name="locations" value="<%= user.preferences.locations.join(', ') %>">
+            </div>
 
-      <!-- Budget Range -->
-      <div class="form-group">
-        <label for="budgetMin">Budget Range:</label>
-        <input type="number" id="budgetMin" name="budgetMin" placeholder="Min" value="<%= user.preferences.budgetMin %>">
-        <input type="number" id="budgetMax" name="budgetMax" placeholder="Max" value="<%= user.preferences.budgetMax %>">
-      </div>
+            <div class="form-group">
+                <label for="budgetMin">Budget Range:</label>
+                <input type="number" id="budgetMin" name="budgetMin" placeholder="Min" value="<%= user.preferences.budgetMin %>">
+                <input type="number" id="budgetMax" name="budgetMax" placeholder="Max" value="<%= user.preferences.budgetMax %>">
+            </div>
 
-      <button type="submit" class="btn">Save Preferences</button>
-    </form>
-  </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-  <%- include('../shared/footer') %>
+            <button type="submit" class="btn">Save Preferences</button>
+        </form>
+    </div>
+
+    <%- include('../shared/footer') %>
 </body>
 </html>

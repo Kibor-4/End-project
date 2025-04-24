@@ -14,7 +14,6 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const morgan = require('morgan');
 const flash = require('connect-flash');
-const csrf = require('csurf');
 require('dotenv').config();
 
 // Enhanced configuration with defaults
@@ -34,7 +33,12 @@ const config = {
         maxAge: 86400000 // 24 hours
     },
     security: {
-        corsOrigins: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'],
+        corsOrigins: process.env.ALLOWED_ORIGINS?.split(',') || [
+            'http://localhost:3000',
+            'http://localhost:8000',
+            'http://127.0.0.1:3000',
+            'http://127.0.0.1:8000'
+        ],
         rateLimit: {
             windowMs: 15 * 60 * 1000, // 15 minutes
             max: 100
@@ -63,12 +67,12 @@ const logger = winston.createLogger({
         winston.format.json()
     ),
     transports: [
-        new winston.transports.File({ 
-            filename: 'logs/error.log', 
+        new winston.transports.File({
+            filename: 'logs/error.log',
             level: 'error',
             maxsize: 5242880 // 5MB
         }),
-        new winston.transports.File({ 
+        new winston.transports.File({
             filename: 'logs/combined.log',
             maxsize: 5242880
         })
@@ -103,7 +107,7 @@ app.use(async (req, res, next) => {
     if (!dbPool) {
         let retries = 0;
         let lastError;
-        
+
         while (retries < MAX_DB_RETRIES) {
             try {
                 dbPool = await db.pool;
@@ -121,19 +125,19 @@ app.use(async (req, res, next) => {
 
         if (!dbPool) {
             logger.error(`Failed to initialize database after ${MAX_DB_RETRIES} attempts`);
-            return res.status(503).render('error', { 
-                message: 'Service unavailable', 
-                statusCode: 503, 
-                user: null 
+            return res.status(503).render('error', {
+                message: 'Service unavailable',
+                statusCode: 503,
+                user: null
             });
         }
     }
-    
+
     req.db = dbPool;
     next();
 });
 
-// Security middleware with enhanced CSP
+// Enhanced security middleware
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
@@ -156,7 +160,7 @@ app.use(helmet({
 
 app.disable('x-powered-by');
 
-// Rate limiting with different tiers
+// Rate limiting
 const apiLimiter = rateLimit({
     windowMs: config.security.rateLimit.windowMs,
     max: config.security.rateLimit.max,
@@ -177,13 +181,12 @@ const authLimiter = rateLimit({
     }
 });
 
-// Apply rate limiting to API routes
 app.use('/api', apiLimiter);
 
 // Cookie parser with signed cookies
 app.use(cookieParser(process.env.COOKIE_SECRET || 'your-secret-key'));
 
-// Enhanced session store with better error handling
+// Session configuration with enhanced security
 const sessionStore = new MySQLStore({
     host: config.db.host,
     port: config.db.port,
@@ -219,7 +222,6 @@ const sessionStore = new MySQLStore({
     }
 });
 
-// Session configuration with enhanced security
 app.use(session({
     store: sessionStore,
     name: config.session.name,
@@ -231,7 +233,7 @@ app.use(session({
         httpOnly: true,
         secure: config.session.secure,
         maxAge: config.session.maxAge,
-        sameSite: 'lax',
+        sameSite: 'strict',
         domain: config.session.cookieDomain,
         path: '/'
     },
@@ -242,21 +244,31 @@ app.use(session({
     }
 }));
 
-// Session store event listeners
-sessionStore.on('connect', () => logger.info('Session store connected'));
-sessionStore.on('disconnect', () => logger.warn('Session store disconnected'));
-sessionStore.on('sessionError', (err) => logger.error(`Session error: ${err.message}`));
-
-// CSRF protection
-app.use(csrf({ cookie: true }));
-app.use((req, res, next) => {
-    res.locals.csrfToken = req.csrfToken();
-    next();
-});
-
 app.use(flash());
 
-// Enhanced Passport configuration with debugging
+// Enhanced CORS configuration with debugging
+const corsOptions = {
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        
+        if (config.security.corsOrigins.includes(origin)) {
+            logger.debug(`Allowing CORS for origin: ${origin}`);
+            return callback(null, true);
+        }
+        
+        logger.warn(`CORS blocked for origin: ${origin}`);
+        return callback(new Error('Not allowed by CORS'), false);
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['X-Request-ID']
+};
+
+app.use(cors(corsOptions));
+
+// Passport configuration
 passport.use(new LocalStrategy(
     {
         usernameField: 'username',
@@ -266,27 +278,27 @@ passport.use(new LocalStrategy(
     async (req, username, password, done) => {
         try {
             logger.debug(`Login attempt for username: ${username}`);
-            
+
             const [users] = await req.db.query(
-                'SELECT * FROM Users WHERE LOWER(Username) = LOWER(?)', 
+                'SELECT * FROM Users WHERE LOWER(Username) = LOWER(?)',
                 [username]
             );
-            
+
             if (users.length === 0) {
                 logger.warn(`User not found: ${username}`);
-                return done(null, false, { 
-                    message: 'Incorrect username or password.' 
+                return done(null, false, {
+                    message: 'Incorrect username or password.'
                 });
             }
 
             const user = users[0];
             logger.debug(`User found: ${user.Username} (ID: ${user.Id})`);
-            
+
             const isValid = await bcrypt.compare(password, user.Password);
             if (!isValid) {
                 logger.warn(`Invalid password for user: ${username}`);
-                return done(null, false, { 
-                    message: 'Incorrect username or password.' 
+                return done(null, false, {
+                    message: 'Incorrect username or password.'
                 });
             }
 
@@ -299,7 +311,6 @@ passport.use(new LocalStrategy(
     }
 ));
 
-// Serialization with enhanced logging
 passport.serializeUser((user, done) => {
     logger.debug(`Serializing user ID: ${user.Id}`);
     done(null, user.Id);
@@ -312,12 +323,12 @@ passport.deserializeUser(async (id, done) => {
             'SELECT Id, Username, Email, Role FROM Users WHERE Id = ?',
             [id]
         );
-        
+
         if (users.length === 0) {
             logger.warn(`User not found during deserialization: ${id}`);
             return done(new Error('User not found'));
         }
-        
+
         const user = users[0];
         logger.debug(`Deserialized user: ${user.Username}`);
         done(null, user);
@@ -331,56 +342,40 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Enhanced request logging
-app.use(morgan(process.env.NODE_ENV === 'development' ? 'dev' : 'combined', { 
-    stream: { 
-        write: (message) => logger.info(message.trim()) 
-    } 
+app.use(morgan(process.env.NODE_ENV === 'development' ? 'dev' : 'combined', {
+    stream: {
+        write: (message) => logger.info(message.trim())
+    }
 }));
 
 // Flash messages and user context
 app.use((req, res, next) => {
     res.locals.user = req.user || null;
     res.locals.isAuthenticated = req.isAuthenticated();
-    
+
     res.locals.messages = {
         success: req.flash('success'),
         error: req.flash('error'),
         info: req.flash('info'),
         warning: req.flash('warning')
     };
-    
+
     res.locals.requestId = req.id;
     next();
 });
 
-// CORS with credentials support
-app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || config.security.corsOrigins.includes(origin | ['http://localhost:3000'])) {
-            callback(null, true);
-        } else {
-            logger.warn(`CORS blocked for origin: ${origin}`);
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token'],
-    exposedHeaders: ['X-Request-ID']
-}));
-
 // Body parsers with size limits
-app.use(express.urlencoded({ 
-    extended: true, 
+app.use(express.urlencoded({
+    extended: true,
     limit: '10kb',
     parameterLimit: 100
 }));
-app.use(express.json({ 
+app.use(express.json({
     limit: '10kb',
     strict: true
 }));
 
-// View engine setup with multiple directories
+// View engine setup
 app.set('view engine', 'ejs');
 app.set('views', [
     path.join(__dirname, 'views/User'),
@@ -414,13 +409,15 @@ app.use('/auth', (req, res, next) => {
 // Rate limiting for auth routes
 app.use('/auth/login', authLimiter);
 
-// Health check endpoint with DB verification
+// Health check endpoint
 app.get('/health', async (req, res) => {
     try {
-        await req.db.query('SELECT 1');
+        const [rows] = await req.db.query('SELECT 1 AS test_value, NOW() AS db_time');
         res.status(200).json({
             status: 'ok',
             database: 'connected',
+            test_value: rows[0].test_value,
+            db_time: rows[0].db_time,
             timestamp: new Date().toISOString(),
             uptime: process.uptime(),
             memoryUsage: process.memoryUsage()
@@ -435,8 +432,30 @@ app.get('/health', async (req, res) => {
     }
 });
 
-// Debug routes for development (protected)
+// Debug routes for development
 if (process.env.NODE_ENV !== 'production') {
+    app.get('/debug/db-test', async (req, res) => {
+        try {
+            const [rows] = await dbPool.query('SELECT 1 AS test_value, NOW() AS current_time');
+            res.json({
+                success: true,
+                connection: 'active',
+                result: rows,
+                details: {
+                    firstRow: rows[0],
+                    testValue: rows[0].test_value,
+                    valueType: typeof rows[0].test_value
+                }
+            });
+        } catch (err) {
+            res.status(500).json({
+                success: false,
+                error: err.message,
+                stack: err.stack
+            });
+        }
+    });
+
     app.get('/debug/session', ensureAuthenticated, (req, res) => {
         res.json({
             sessionId: req.sessionID,
@@ -445,39 +464,14 @@ if (process.env.NODE_ENV !== 'production') {
             session: req.session
         });
     });
-    
-    app.get('/debug/test-auth', ensureAuthenticated, (req, res) => {
-        if (req.isAuthenticated()) {
-            return res.json({
-                status: 'authenticated',
-                user: req.user
-            });
-        }
+
+    app.get('/debug/cors', (req, res) => {
         res.json({
-            status: 'not authenticated',
-            session: req.session
+            corsConfig: corsOptions,
+            allowedOrigins: config.security.corsOrigins,
+            requestOrigin: req.get('origin'),
+            headers: req.headers
         });
-    });
-    
-    app.get('/debug/test-password/:password', ensureAuthenticated, async (req, res) => {
-        try {
-            const [users] = await req.db.query('SELECT Username, Password FROM Users LIMIT 1');
-            if (users.length === 0) {
-                return res.json({ error: 'No users in database' });
-            }
-            
-            const user = users[0];
-            const match = await bcrypt.compare(req.params.password, user.Password);
-            
-            res.json({
-                username: user.Username,
-                passwordMatch: match,
-                storedHash: user.Password
-            });
-        }
-        catch (err) {
-            res.status(500).json({ error: err.message });
-        }
     });
 }
 
@@ -489,7 +483,6 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    
     logger.warn(`Unauthenticated access attempt to: ${req.originalUrl}`);
     req.session.returnTo = req.originalUrl;
     req.flash('error', 'Please login to access this page');
@@ -500,7 +493,6 @@ function ensureAdmin(req, res, next) {
     if (req.isAuthenticated() && req.user.Role === 'admin') {
         return next();
     }
-    
     logger.warn(`Unauthorized admin access attempt by: ${req.user?.Username || 'anonymous'}`);
     res.status(403).render('error', {
         message: 'Forbidden',
@@ -521,19 +513,20 @@ app.use((req, res) => {
 
 app.use((err, req, res, next) => {
     logger.error(`Error [${req.id}]: ${err.stack}`);
-    
+
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
         return res.status(400).json({ error: 'Invalid JSON' });
     }
-    
-    if (err.code === 'EBADCSRFTOKEN') {
-        return res.status(403).render('error', {
-            message: 'Invalid CSRF token',
-            statusCode: 403,
-            user: req.user
+
+    // Handle CORS errors specifically
+    if (err.message === 'Not allowed by CORS') {
+        logger.warn(`CORS error for origin: ${req.get('origin')}`);
+        return res.status(403).json({ 
+            error: 'Cross-origin request blocked',
+            allowedOrigins: config.security.corsOrigins
         });
     }
-    
+
     res.status(err.status || 500).render('error', {
         message: err.message || 'Something went wrong',
         statusCode: err.status || 500,
@@ -542,32 +535,43 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Server startup with enhanced verification
+// Server startup
 async function startServer() {
     try {
-        // Initialize database pool
+        logger.info('Initializing database connection...');
         dbPool = await db.pool;
-        const conn = await dbPool.getConnection();
-        conn.release();
-        logger.info('Database pool initialized successfully');
         
-        // Verify database query API
         try {
-            const [testResult] = await dbPool.query('SELECT 1 AS test');
-            if (!Array.isArray(testResult) || testResult[0].test !== 1) {
-                throw new Error('Unexpected database query result format');
+            logger.info('Testing database connection...');
+            const [rows] = await dbPool.query('SELECT 1 AS connection_test');
+            
+            if (!Array.isArray(rows) || rows.length === 0) {
+                throw new Error('Empty result set from test query');
             }
+            
+            const testValue = rows[0].connection_test;
+            const validValues = [1, '1', true];
+            if (!validValues.includes(testValue)) {
+                throw new Error(`Unexpected test value: ${testValue} (type: ${typeof testValue})`);
+            }
+            
+            logger.info('Database connection test passed');
         } catch (err) {
-            throw new Error(`Database query API validation failed: ${err.message}`);
+            logger.error('Database test failed:', err);
+            throw new Error(`Database validation failed: ${err.message}`);
         }
-        
-        
-};
 
+        const port = process.env.PORT || 3000;
+        app.listen(port, () => {
+            logger.info(`Server successfully started on port ${port}`);
+            console.log(`Server running at http://localhost:${port}`);
+        });
 
+    } catch (error) {
+        logger.error('Server startup failed:', error);
+        console.error('Server failed to start:', error.message);
+        process.exit(1);
+    }
+}
 
-
-
-// Start the server
 startServer();
-

@@ -40,9 +40,12 @@
                 <img src="<%= user.profile_picture %>" width="100px"/>
             <% } %>
 
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
             <button type="submit">Update Profile</button>
         </form>
         <form action="/delete-account" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button type="submit" style="background-color: red; color: white;">Delete Account</button>
         </form>
     <% } else { %>

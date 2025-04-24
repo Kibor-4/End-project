@@ -16,11 +16,11 @@ const authController = {
 
     // Login - POST
     postLogin: passport.authenticate('local', {
-        successRedirect: 'dashboard',
+        successRedirect: '/about', // Changed from 'dashboard' to '/about'
         failureRedirect: 'login',
-        failureFlash: true
-    }),
-
+        failureFlash: true,
+        }),
+        
     // Register - GET
     getRegister: (req, res) => {
         res.render('register', {
@@ -30,36 +30,36 @@ const authController = {
         });
     },
 
-    // Register - POST
-    postRegister: async (req, res) => {
-        const { username, email, password, confirmPassword } = req.body;
-        
-        if (password !== confirmPassword) {
-            req.flash('error', 'Passwords do not match.');
-            return res.redirect('signup');
-        }
-
-        try {
-            const existingUser = await db.query('SELECT Id FROM Users WHERE email = ?', [email]);
-            if (existingUser.length > 0) {
-                req.flash('error', 'Email already in use.');
-                return res.redirect('signup');
-            }
-
-            const hashedPassword = await bcrypt.hash(password, 10);
-            await db.query(
-                'INSERT INTO Users (username, email, password) VALUES (?, ?, ?)',
-                [username, email, hashedPassword]
-            );
-
-            req.flash('success', 'Registration successful! Please log in.');
-            res.redirect('login');
-        } catch (error) {
-            console.error('Registration error:', error);
-            req.flash('error', 'Registration failed. Please try again.');
-            res.redirect('/auth/register');
-        }
-    },
+   // Register - POST
+       postRegister: async (req, res) => {
+            const { username, email, password, confirmPassword } = req.body;
+    
+            if (password !== confirmPassword) {
+                req.flash('error', 'Passwords do not match.');
+                return res.redirect('signup');
+            }
+    
+            try {
+                const existingUser = await db.query('SELECT Id FROM Users WHERE email = ?', [email]);
+                if (existingUser.length > 0) {
+                    req.flash('error', 'Email already in use.');
+                    return res.redirect('signup');
+                }
+    
+                const hashedPassword = await bcrypt.hash(password, 10);
+                await db.query(
+                    'INSERT INTO Users (username, email, password) VALUES (?, ?, ?)',
+                    [username, email, hashedPassword]
+                );
+    
+                req.flash('success', 'Registration successful! Please log in.');
+                res.redirect('login');
+            } catch (error) {
+                console.error('Registration error:', error);
+                req.flash('error', 'Registration failed. Please try again.');
+                res.redirect('/auth/register');
+            }
+        },
 
     // Logout - GET
     getLogout: (req, res, next) => {

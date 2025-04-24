@@ -51,6 +51,8 @@
             <label for="images">Upload Images:</label>
             <input type="file" id="images" name="images" multiple accept="image/*" required>
 
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
             <input type="submit" value="Submit Property">
         </form>
     </div>
